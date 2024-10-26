@@ -1,36 +1,30 @@
 const express = require('express');
-const axios = require('axios');
+const { exec } = require('child_process');
 const app = express();
 const port = 5000;
 
-// API key for the baseball stats service
-const API_KEY = 'your_api_key';  // Replace this with your real API key
-
-// Endpoint to get player stats by name
-app.get('/api/player-stats', async (req, res) => {
+app.get('/api/player-stats', (req, res) => {
   const { firstName, lastName } = req.query;
 
-  try {
-    // Step 1: Look up the player's ID by their name
-    const playerSearchResponse = await axios.get(`https://api.sportsdata.io/v3/mlb/scores/json/Players?key=${API_KEY}`);
-    const players = playerSearchResponse.data;
-    const player = players.find(p => p.FirstName.toLowerCase() === firstName.toLowerCase() && p.LastName.toLowerCase() === lastName.toLowerCase());
-
-    if (!player) {
-      return res.status(404).json({ message: 'Player not found' });
+  // Use child_process to run the Python script with the player's name as arguments
+  exec(`py fetch_player_stats.py ${firstName} ${lastName}`, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error executing Python script: ${error.message}`);
+      return res.status(500).json({ error: 'Error fetching player stats' });
+    }
+    if (stderr) {
+      console.error(`Error: ${stderr}`);
+      return res.status(500).json({ error: 'Error fetching player stats' });
     }
 
-    const playerId = player.PlayerID;
-
-    // Step 2: Fetch player stats using the player ID
-    const playerStatsResponse = await axios.get(`https://api.sportsdata.io/v3/mlb/stats/json/PlayerSeasonStatsByPlayerID/2023?playerid=${playerId}&key=${API_KEY}`);
-    const playerStats = playerStatsResponse.data;
-
-    res.json(playerStats);
-  } catch (error) {
-    console.error('Error fetching player stats:', error);
-    res.status(500).json({ message: 'Error fetching player stats' });
-  }
+    // Send back the Python script's output (which will be in JSON format)
+    try {
+      const stats = JSON.parse(stdout);
+      res.json(stats);
+    } catch (parseError) {
+      res.status(500).json({ error: 'Error parsing player stats' });
+    }
+  });
 });
 
 app.listen(port, () => {
