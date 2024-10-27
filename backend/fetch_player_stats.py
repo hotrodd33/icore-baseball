@@ -1,6 +1,6 @@
 import sys
 import pandas as pd
-from pybaseball import playerid_lookup, statcast_pitcher
+from pybaseball import playerid_lookup, statcast_pitcher, get_splits
 
 def get_player_stats(first_name, last_name):
     # Look up player ID using pybaseball
@@ -11,7 +11,7 @@ def get_player_stats(first_name, last_name):
     player_id = player.iloc[0]['key_mlbam']  # Get MLBAM player ID
 
     # Fetch stats for this player (use career range or specific dates as needed)
-    stats = statcast_pitcher('1991-04-01', '1991-10-01', player_id)
+    stats = get_splits('maddugr95', pitching_splits = True)
 
     # Convert stats DataFrame to dictionary
     return stats.to_dict(orient='records')
@@ -20,5 +20,5 @@ if __name__ == "__main__":
     first_name = sys.argv[1]
     last_name = sys.argv[2]
     
-    stats = get_player_stats(first_name, last_name)
+    stats = get_splits('maddugr95', pitching_splits = True)
     print(stats)
