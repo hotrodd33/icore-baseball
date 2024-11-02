@@ -8,6 +8,7 @@ function App() {
     const [year, setYear] = useState('');
     const [playerType, setPlayerType] = useState('');
     const [results, setResults] = useState(null);
+    const [distinctEvents, setDistinctEvents] = useState([]);  // Initialize as an empty array
     const [diceRoll, setDiceRoll] = useState(null);
     const [simulatedCount, setSimulatedCount] = useState('');
     const [simulatedEvent, setSimulatedEvent] = useState('');
@@ -24,11 +25,13 @@ function App() {
             });
             console.log("Response data:", response.data);  // Debugging output
             setResults(response.data);
+            setDistinctEvents(response.data.distinct_events || []);  // Use empty array if undefined
             setError('');  // Clear any previous errors
         } catch (err) {
             console.error('Error fetching data:', err);
             setError(err.response?.data?.error || 'An error occurred');
             setResults(null);  // Clear previous results
+            setDistinctEvents([]);  // Clear distinct events if there's an error
         }
     };
 
@@ -38,8 +41,7 @@ function App() {
             const roll = response.data.roll;
             setDiceRoll(roll);
 
-            // Map the dice roll to a count within the count frequency range
-            const countResults = results.count_frequencies;
+            const countResults = results?.count_frequencies || [];  // Use empty array if undefined
             const matchingCount = countResults.find(
                 (result) => roll >= result.range_start && roll <= result.range_end
             );
@@ -47,8 +49,7 @@ function App() {
             if (matchingCount) {
                 setSimulatedCount(`${matchingCount.balls}-${matchingCount.strikes}`);
 
-                // Now simulate an event for that specific count
-                const eventResults = results.event_ranges.lefty.concat(results.event_ranges.righty);
+                const eventResults = [...(results.event_ranges?.lefty || []), ...(results.event_ranges?.righty || [])];
                 const matchingEvent = eventResults.find(
                     (event) => event.balls === matchingCount.balls && event.strikes === matchingCount.strikes &&
                         roll >= event.range_start && roll <= event.range_end
@@ -165,16 +166,27 @@ function App() {
 
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
+            {distinctEvents.length > 0 && (
+                <div>
+                    <h2>Distinct Events</h2>
+                    <ul>
+                        {distinctEvents.map((event, index) => (
+                            <li key={index}>{event}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
             {results && (
                 <div>
                     <h2>Count Frequencies</h2>
                     {renderCountTable(results.count_frequencies)}
 
                     <h2>Matchup Results vs Left-Handed</h2>
-                    {renderEventTable(results.event_ranges.lefty, "Left-Handed Events")}
+                    {renderEventTable(results.event_ranges?.lefty || [], "Left-Handed Events")}
 
                     <h2>Matchup Results vs Right-Handed</h2>
-                    {renderEventTable(results.event_ranges.righty, "Right-Handed Events")}
+                    {renderEventTable(results.event_ranges?.righty || [], "Right-Handed Events")}
 
                     <button onClick={handleRollDice}>Roll Dice</button>
                     {diceRoll && <p>Dice Roll: {diceRoll}</p>}

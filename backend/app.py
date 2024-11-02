@@ -7,6 +7,33 @@ import random
 app = Flask(__name__)
 CORS(app)
 
+def get_stats():
+    data = request.json
+    first_name = data.get('first_name')
+    last_name = data.get('last_name')
+    year = data.get('year')
+    player_type = data.get('player_type')
+
+    # Fetch player data
+    stats = get_player_stats(first_name, last_name, year, player_type)
+    if isinstance(stats, dict) and 'error' in stats:
+        return jsonify(stats), 400
+
+    # Calculate event ranges by count
+    event_ranges = calculate_event_ranges_for_counts(stats, player_type)
+
+    # Calculate count frequencies and assign dice ranges
+    count_frequencies = calculate_count_frequencies(stats)
+
+    # Get distinct events
+    distinct_events = stats['events'].dropna().unique().tolist()
+
+    return jsonify({
+        "event_ranges": event_ranges,
+        "count_frequencies": count_frequencies.to_dict(orient='records'),
+        "distinct_events": distinct_events  # Add distinct events here
+    })
+
 def get_player_stats(first_name, last_name, year, player_type):
     player = playerid_lookup(last_name, first_name)
     if player.empty:
@@ -16,9 +43,9 @@ def get_player_stats(first_name, last_name, year, player_type):
 
     try:
         if player_type == 'pitcher':
-            stats = statcast_pitcher(f'{year}-04-01', f'{year}-10-31', player_id)
+            stats = statcast_pitcher(f'{year}-03-25', f'{year}-10-31', player_id)
         elif player_type == 'batter':
-            stats = statcast_batter(f'{year}-04-01', f'{year}-10-31', player_id)
+            stats = statcast_batter(f'{year}-03-25', f'{year}-10-31', player_id)
         else:
             return {"error": "Invalid player type. Use 'batter' or 'pitcher'."}
 
@@ -88,16 +115,17 @@ def calculate_ranges(subset):
     return {"lefty": lefty_results, "righty": righty_results}
 
 def calculate_count_frequencies(stats):
-    # Group by balls and strikes to count occurrences of each combination
-    count_frequencies = stats.groupby(['balls', 'strikes']).size().reset_index(name='count')
-
-    # Calculate total number of rows to calculate percentage
+    # Filter the stats to include only rows where there was a recorded event
+    stats_with_results = stats.dropna(subset=['events'])  # Only keep rows with an event
+    
+    # Group by balls and strikes to count occurrences of each combination with an event
+    count_frequencies = stats_with_results.groupby(['balls', 'strikes']).size().reset_index(name='count')
+    
+    # Calculate total count of rows to find percentage for each (balls, strikes) combination
     total_counts = count_frequencies['count'].sum()
-
-    # Calculate percentage of each count
     count_frequencies['percentage'] = (count_frequencies['count'] / total_counts) * 100
 
-    # Assign dice roll range (000-999) based on percentage
+    # Assign dice roll range (000-999) based on the percentage of each count
     current_start = 0
     count_frequencies['range_start'] = 0
     count_frequencies['range_end'] = 0
@@ -108,11 +136,12 @@ def calculate_count_frequencies(stats):
         count_frequencies.at[i, 'range_end'] = current_start + range_size - 1
         current_start += range_size
 
-        # Ensure we cap at 999 for the last range
+        # Ensure we don't exceed 999 for the final range
         if current_start > 999:
             current_start = 999
 
     return count_frequencies[['balls', 'strikes', 'count', 'percentage', 'range_start', 'range_end']]
+
 
 @app.route('/api/get_stats', methods=['POST'])
 def get_stats():

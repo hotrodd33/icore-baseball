@@ -13,9 +13,9 @@ def get_player_stats(first_name, last_name, year, player_type):
     # Fetch Statcast stats for this player for a specific year
     try:
         if player_type == 'pitcher':
-            stats = statcast_pitcher(f'{year}-04-01', f'{year}-10-31', player_id)
+            stats = statcast_pitcher(f'{year}-03-01', f'{year}-10-31', player_id)
         elif player_type == 'batter':
-            stats = statcast_batter(f'{year}-04-01', f'{year}-10-31', player_id)
+            stats = statcast_batter(f'{year}-03-01', f'{year}-10-31', player_id)
         else:
             return {"error": "Invalid player type. Use 'batter' or 'pitcher'."}
 
