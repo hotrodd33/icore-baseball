@@ -1,0 +1,4 @@
+flask                  # Web framework for creating APIs
+flask-cors             # For handling Cross-Origin Resource Sharing (CORS) in Flask
+pybaseball             # For fetching baseball statistics
+pandas                 # For data manipulation and analysis
