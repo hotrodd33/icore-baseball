@@ -1,0 +1,1753 @@
+{
+    "event_ranges": {
+        "lefty": [
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "sac_fly",
+                "decimal_value": 0.03333333333333333,
+                "range_start": 0,
+                "range_end": 32,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.23333333333333334,
+                "range_start": 33,
+                "range_end": 265,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "field_out_popup",
+                "decimal_value": 0.06666666666666667,
+                "range_start": 266,
+                "range_end": 331,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.03333333333333333,
+                "range_start": 332,
+                "range_end": 364,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.23333333333333334,
+                "range_start": 365,
+                "range_end": 597,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "grounded_into_double_play",
+                "decimal_value": 0.06666666666666667,
+                "range_start": 598,
+                "range_end": 663,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "force_out",
+                "decimal_value": 0.03333333333333333,
+                "range_start": 664,
+                "range_end": 696,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "single",
+                "decimal_value": 0.1,
+                "range_start": 697,
+                "range_end": 796,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "double",
+                "decimal_value": 0.13333333333333333,
+                "range_start": 797,
+                "range_end": 929,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "home_run",
+                "decimal_value": 0.06666666666666667,
+                "range_start": 930,
+                "range_end": 995,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "field_error",
+                "decimal_value": 0.043478260869565216,
+                "range_start": 0,
+                "range_end": 42,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.17391304347826086,
+                "range_start": 43,
+                "range_end": 215,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "field_out_popup",
+                "decimal_value": 0.08695652173913043,
+                "range_start": 216,
+                "range_end": 301,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.08695652173913043,
+                "range_start": 302,
+                "range_end": 387,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.17391304347826086,
+                "range_start": 388,
+                "range_end": 560,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "grounded_into_double_play",
+                "decimal_value": 0.043478260869565216,
+                "range_start": 561,
+                "range_end": 603,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "force_out",
+                "decimal_value": 0.08695652173913043,
+                "range_start": 604,
+                "range_end": 689,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "single",
+                "decimal_value": 0.2608695652173913,
+                "range_start": 690,
+                "range_end": 949,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "double",
+                "decimal_value": 0.043478260869565216,
+                "range_start": 950,
+                "range_end": 992,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 2,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.4,
+                "range_start": 0,
+                "range_end": 399,
+                "count_label": "(0-2)"
+            },
+            {
+                "balls": 0,
+                "strikes": 2,
+                "event": "hit_by_pitch",
+                "decimal_value": 0.2,
+                "range_start": 400,
+                "range_end": 599,
+                "count_label": "(0-2)"
+            },
+            {
+                "balls": 0,
+                "strikes": 2,
+                "event": "strikeout",
+                "decimal_value": 0.4,
+                "range_start": 600,
+                "range_end": 999,
+                "count_label": "(0-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.25,
+                "range_start": 0,
+                "range_end": 249,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "field_out_popup",
+                "decimal_value": 0.16666666666666666,
+                "range_start": 250,
+                "range_end": 415,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.08333333333333333,
+                "range_start": 416,
+                "range_end": 498,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.20833333333333334,
+                "range_start": 499,
+                "range_end": 706,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "force_out",
+                "decimal_value": 0.041666666666666664,
+                "range_start": 707,
+                "range_end": 747,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "single",
+                "decimal_value": 0.125,
+                "range_start": 748,
+                "range_end": 872,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "double",
+                "decimal_value": 0.041666666666666664,
+                "range_start": 873,
+                "range_end": 913,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "home_run",
+                "decimal_value": 0.08333333333333333,
+                "range_start": 914,
+                "range_end": 996,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "sac_fly",
+                "decimal_value": 0.041666666666666664,
+                "range_start": 0,
+                "range_end": 40,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.125,
+                "range_start": 41,
+                "range_end": 165,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "field_out_popup",
+                "decimal_value": 0.041666666666666664,
+                "range_start": 166,
+                "range_end": 206,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.041666666666666664,
+                "range_start": 207,
+                "range_end": 247,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.2916666666666667,
+                "range_start": 248,
+                "range_end": 538,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "single",
+                "decimal_value": 0.2916666666666667,
+                "range_start": 539,
+                "range_end": 829,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "double",
+                "decimal_value": 0.08333333333333333,
+                "range_start": 830,
+                "range_end": 912,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "home_run",
+                "decimal_value": 0.041666666666666664,
+                "range_start": 913,
+                "range_end": 953,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "truncated_pa",
+                "decimal_value": 0.041666666666666664,
+                "range_start": 954,
+                "range_end": 994,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.14814814814814814,
+                "range_start": 0,
+                "range_end": 147,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "field_out_popup",
+                "decimal_value": 0.07407407407407407,
+                "range_start": 148,
+                "range_end": 221,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.037037037037037035,
+                "range_start": 222,
+                "range_end": 258,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.07407407407407407,
+                "range_start": 259,
+                "range_end": 332,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "single",
+                "decimal_value": 0.07407407407407407,
+                "range_start": 333,
+                "range_end": 406,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "double",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 407,
+                "range_end": 517,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "home_run",
+                "decimal_value": 0.07407407407407407,
+                "range_start": 518,
+                "range_end": 591,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "strikeout",
+                "decimal_value": 0.4074074074074074,
+                "range_start": 592,
+                "range_end": 998,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.2222222222222222,
+                "range_start": 0,
+                "range_end": 221,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "field_out_popup",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 222,
+                "range_end": 332,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 333,
+                "range_end": 443,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.3333333333333333,
+                "range_start": 444,
+                "range_end": 776,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "single",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 777,
+                "range_end": 887,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "hit_by_pitch",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 888,
+                "range_end": 998,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.16,
+                "range_start": 0,
+                "range_end": 159,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "field_out_popup",
+                "decimal_value": 0.08,
+                "range_start": 160,
+                "range_end": 239,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.04,
+                "range_start": 240,
+                "range_end": 279,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.4,
+                "range_start": 280,
+                "range_end": 679,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "force_out",
+                "decimal_value": 0.04,
+                "range_start": 680,
+                "range_end": 719,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "single",
+                "decimal_value": 0.16,
+                "range_start": 720,
+                "range_end": 879,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "double",
+                "decimal_value": 0.04,
+                "range_start": 880,
+                "range_end": 919,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "home_run",
+                "decimal_value": 0.08,
+                "range_start": 920,
+                "range_end": 999,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.15151515151515152,
+                "range_start": 0,
+                "range_end": 150,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "field_out_popup",
+                "decimal_value": 0.06060606060606061,
+                "range_start": 151,
+                "range_end": 210,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.15151515151515152,
+                "range_start": 211,
+                "range_end": 361,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "grounded_into_double_play",
+                "decimal_value": 0.030303030303030304,
+                "range_start": 362,
+                "range_end": 391,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "single",
+                "decimal_value": 0.15151515151515152,
+                "range_start": 392,
+                "range_end": 542,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "triple",
+                "decimal_value": 0.06060606060606061,
+                "range_start": 543,
+                "range_end": 602,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "home_run",
+                "decimal_value": 0.030303030303030304,
+                "range_start": 603,
+                "range_end": 632,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "strikeout",
+                "decimal_value": 0.36363636363636365,
+                "range_start": 633,
+                "range_end": 995,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 0,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.05263157894736842,
+                "range_start": 0,
+                "range_end": 51,
+                "count_label": "(3-0)"
+            },
+            {
+                "balls": 3,
+                "strikes": 0,
+                "event": "field_out_popup",
+                "decimal_value": 0.05263157894736842,
+                "range_start": 52,
+                "range_end": 103,
+                "count_label": "(3-0)"
+            },
+            {
+                "balls": 3,
+                "strikes": 0,
+                "event": "intent_walk",
+                "decimal_value": 0.47368421052631576,
+                "range_start": 104,
+                "range_end": 576,
+                "count_label": "(3-0)"
+            },
+            {
+                "balls": 3,
+                "strikes": 0,
+                "event": "walk",
+                "decimal_value": 0.42105263157894735,
+                "range_start": 577,
+                "range_end": 997,
+                "count_label": "(3-0)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.04,
+                "range_start": 0,
+                "range_end": 39,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "grounded_into_double_play",
+                "decimal_value": 0.04,
+                "range_start": 40,
+                "range_end": 79,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "single",
+                "decimal_value": 0.08,
+                "range_start": 80,
+                "range_end": 159,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "double",
+                "decimal_value": 0.12,
+                "range_start": 160,
+                "range_end": 279,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "triple",
+                "decimal_value": 0.04,
+                "range_start": 280,
+                "range_end": 319,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "home_run",
+                "decimal_value": 0.04,
+                "range_start": 320,
+                "range_end": 359,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "walk",
+                "decimal_value": 0.64,
+                "range_start": 360,
+                "range_end": 999,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "sac_fly",
+                "decimal_value": 0.034482758620689655,
+                "range_start": 0,
+                "range_end": 33,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.06896551724137931,
+                "range_start": 34,
+                "range_end": 101,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "field_out_popup",
+                "decimal_value": 0.017241379310344827,
+                "range_start": 102,
+                "range_end": 118,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.034482758620689655,
+                "range_start": 119,
+                "range_end": 152,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "single",
+                "decimal_value": 0.06896551724137931,
+                "range_start": 153,
+                "range_end": 220,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "double",
+                "decimal_value": 0.08620689655172414,
+                "range_start": 221,
+                "range_end": 306,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "home_run",
+                "decimal_value": 0.05172413793103448,
+                "range_start": 307,
+                "range_end": 357,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "walk",
+                "decimal_value": 0.41379310344827586,
+                "range_start": 358,
+                "range_end": 770,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "hit_by_pitch",
+                "decimal_value": 0.017241379310344827,
+                "range_start": 771,
+                "range_end": 787,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "strikeout",
+                "decimal_value": 0.1896551724137931,
+                "range_start": 788,
+                "range_end": 976,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "strikeout_double_play",
+                "decimal_value": 0.017241379310344827,
+                "range_start": 977,
+                "range_end": 993,
+                "count_label": "(3-2)"
+            }
+        ],
+        "righty": [
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "sac_fly",
+                "decimal_value": 0.025,
+                "range_start": 0,
+                "range_end": 24,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.2,
+                "range_start": 25,
+                "range_end": 224,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "field_out_popup",
+                "decimal_value": 0.025,
+                "range_start": 225,
+                "range_end": 249,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.025,
+                "range_start": 250,
+                "range_end": 274,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.25,
+                "range_start": 275,
+                "range_end": 524,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "grounded_into_double_play",
+                "decimal_value": 0.025,
+                "range_start": 525,
+                "range_end": 549,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "single",
+                "decimal_value": 0.275,
+                "range_start": 550,
+                "range_end": 824,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "double",
+                "decimal_value": 0.1,
+                "range_start": 825,
+                "range_end": 924,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "home_run",
+                "decimal_value": 0.05,
+                "range_start": 925,
+                "range_end": 974,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 0,
+                "event": "hit_by_pitch",
+                "decimal_value": 0.025,
+                "range_start": 975,
+                "range_end": 999,
+                "count_label": "(0-0)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.3181818181818182,
+                "range_start": 0,
+                "range_end": 317,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "field_out_popup",
+                "decimal_value": 0.045454545454545456,
+                "range_start": 318,
+                "range_end": 362,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.045454545454545456,
+                "range_start": 363,
+                "range_end": 407,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.18181818181818182,
+                "range_start": 408,
+                "range_end": 588,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "grounded_into_double_play",
+                "decimal_value": 0.09090909090909091,
+                "range_start": 589,
+                "range_end": 678,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "force_out",
+                "decimal_value": 0.09090909090909091,
+                "range_start": 679,
+                "range_end": 768,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "single",
+                "decimal_value": 0.13636363636363635,
+                "range_start": 769,
+                "range_end": 904,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "triple",
+                "decimal_value": 0.045454545454545456,
+                "range_start": 905,
+                "range_end": 949,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 1,
+                "event": "home_run",
+                "decimal_value": 0.045454545454545456,
+                "range_start": 950,
+                "range_end": 994,
+                "count_label": "(0-1)"
+            },
+            {
+                "balls": 0,
+                "strikes": 2,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.09090909090909091,
+                "range_start": 0,
+                "range_end": 89,
+                "count_label": "(0-2)"
+            },
+            {
+                "balls": 0,
+                "strikes": 2,
+                "event": "fielders_choice_out",
+                "decimal_value": 0.09090909090909091,
+                "range_start": 90,
+                "range_end": 179,
+                "count_label": "(0-2)"
+            },
+            {
+                "balls": 0,
+                "strikes": 2,
+                "event": "single",
+                "decimal_value": 0.2727272727272727,
+                "range_start": 180,
+                "range_end": 451,
+                "count_label": "(0-2)"
+            },
+            {
+                "balls": 0,
+                "strikes": 2,
+                "event": "strikeout",
+                "decimal_value": 0.5454545454545454,
+                "range_start": 452,
+                "range_end": 996,
+                "count_label": "(0-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.3157894736842105,
+                "range_start": 0,
+                "range_end": 314,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "field_out_popup",
+                "decimal_value": 0.2631578947368421,
+                "range_start": 315,
+                "range_end": 577,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.10526315789473684,
+                "range_start": 578,
+                "range_end": 682,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "single",
+                "decimal_value": 0.15789473684210525,
+                "range_start": 683,
+                "range_end": 839,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "double",
+                "decimal_value": 0.10526315789473684,
+                "range_start": 840,
+                "range_end": 944,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 0,
+                "event": "triple",
+                "decimal_value": 0.05263157894736842,
+                "range_start": 945,
+                "range_end": 996,
+                "count_label": "(1-0)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "sac_fly",
+                "decimal_value": 0.037037037037037035,
+                "range_start": 0,
+                "range_end": 36,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.25925925925925924,
+                "range_start": 37,
+                "range_end": 295,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "field_out_popup",
+                "decimal_value": 0.07407407407407407,
+                "range_start": 296,
+                "range_end": 369,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.2962962962962963,
+                "range_start": 370,
+                "range_end": 665,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "grounded_into_double_play",
+                "decimal_value": 0.037037037037037035,
+                "range_start": 666,
+                "range_end": 702,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "force_out",
+                "decimal_value": 0.037037037037037035,
+                "range_start": 703,
+                "range_end": 739,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "single",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 740,
+                "range_end": 850,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "double",
+                "decimal_value": 0.07407407407407407,
+                "range_start": 851,
+                "range_end": 924,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "home_run",
+                "decimal_value": 0.037037037037037035,
+                "range_start": 925,
+                "range_end": 961,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 1,
+                "event": "hit_by_pitch",
+                "decimal_value": 0.037037037037037035,
+                "range_start": 962,
+                "range_end": 998,
+                "count_label": "(1-1)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.13513513513513514,
+                "range_start": 0,
+                "range_end": 134,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "field_out_popup",
+                "decimal_value": 0.08108108108108109,
+                "range_start": 135,
+                "range_end": 215,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.02702702702702703,
+                "range_start": 216,
+                "range_end": 242,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.1891891891891892,
+                "range_start": 243,
+                "range_end": 431,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "force_out",
+                "decimal_value": 0.02702702702702703,
+                "range_start": 432,
+                "range_end": 458,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "single",
+                "decimal_value": 0.10810810810810811,
+                "range_start": 459,
+                "range_end": 566,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "double",
+                "decimal_value": 0.02702702702702703,
+                "range_start": 567,
+                "range_end": 593,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "home_run",
+                "decimal_value": 0.05405405405405406,
+                "range_start": 594,
+                "range_end": 647,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "hit_by_pitch",
+                "decimal_value": 0.02702702702702703,
+                "range_start": 648,
+                "range_end": 674,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 1,
+                "strikes": 2,
+                "event": "strikeout",
+                "decimal_value": 0.32432432432432434,
+                "range_start": 675,
+                "range_end": 998,
+                "count_label": "(1-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 0,
+                "range_end": 110,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "field_out_popup",
+                "decimal_value": 0.2222222222222222,
+                "range_start": 111,
+                "range_end": 332,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 333,
+                "range_end": 443,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 444,
+                "range_end": 554,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "single",
+                "decimal_value": 0.2222222222222222,
+                "range_start": 555,
+                "range_end": 776,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "double",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 777,
+                "range_end": 887,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 0,
+                "event": "home_run",
+                "decimal_value": 0.1111111111111111,
+                "range_start": 888,
+                "range_end": 998,
+                "count_label": "(2-0)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.30434782608695654,
+                "range_start": 0,
+                "range_end": 303,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "field_out_popup",
+                "decimal_value": 0.13043478260869565,
+                "range_start": 304,
+                "range_end": 433,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.08695652173913043,
+                "range_start": 434,
+                "range_end": 519,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.17391304347826086,
+                "range_start": 520,
+                "range_end": 692,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "single",
+                "decimal_value": 0.043478260869565216,
+                "range_start": 693,
+                "range_end": 735,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "double",
+                "decimal_value": 0.08695652173913043,
+                "range_start": 736,
+                "range_end": 821,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 1,
+                "event": "home_run",
+                "decimal_value": 0.17391304347826086,
+                "range_start": 822,
+                "range_end": 994,
+                "count_label": "(2-1)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "sac_fly",
+                "decimal_value": 0.02857142857142857,
+                "range_start": 0,
+                "range_end": 27,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.14285714285714285,
+                "range_start": 28,
+                "range_end": 169,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "field_out_popup",
+                "decimal_value": 0.05714285714285714,
+                "range_start": 170,
+                "range_end": 226,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "field_out_line_drive",
+                "decimal_value": 0.05714285714285714,
+                "range_start": 227,
+                "range_end": 283,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.11428571428571428,
+                "range_start": 284,
+                "range_end": 397,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "force_out",
+                "decimal_value": 0.02857142857142857,
+                "range_start": 398,
+                "range_end": 425,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "single",
+                "decimal_value": 0.17142857142857143,
+                "range_start": 426,
+                "range_end": 596,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "double",
+                "decimal_value": 0.02857142857142857,
+                "range_start": 597,
+                "range_end": 624,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "home_run",
+                "decimal_value": 0.08571428571428572,
+                "range_start": 625,
+                "range_end": 709,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 2,
+                "strikes": 2,
+                "event": "strikeout",
+                "decimal_value": 0.2857142857142857,
+                "range_start": 710,
+                "range_end": 994,
+                "count_label": "(2-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 0,
+                "event": "intent_walk",
+                "decimal_value": 0.65625,
+                "range_start": 0,
+                "range_end": 655,
+                "count_label": "(3-0)"
+            },
+            {
+                "balls": 3,
+                "strikes": 0,
+                "event": "walk",
+                "decimal_value": 0.34375,
+                "range_start": 656,
+                "range_end": 998,
+                "count_label": "(3-0)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.16129032258064516,
+                "range_start": 0,
+                "range_end": 160,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "double",
+                "decimal_value": 0.03225806451612903,
+                "range_start": 161,
+                "range_end": 192,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "home_run",
+                "decimal_value": 0.06451612903225806,
+                "range_start": 193,
+                "range_end": 256,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "intent_walk",
+                "decimal_value": 0.0967741935483871,
+                "range_start": 257,
+                "range_end": 352,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 1,
+                "event": "walk",
+                "decimal_value": 0.6451612903225806,
+                "range_start": 353,
+                "range_end": 997,
+                "count_label": "(3-1)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "field_out_fly_ball",
+                "decimal_value": 0.09090909090909091,
+                "range_start": 0,
+                "range_end": 89,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "field_out_popup",
+                "decimal_value": 0.05454545454545454,
+                "range_start": 90,
+                "range_end": 143,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "field_out_ground_ball",
+                "decimal_value": 0.10909090909090909,
+                "range_start": 144,
+                "range_end": 252,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "force_out",
+                "decimal_value": 0.01818181818181818,
+                "range_start": 253,
+                "range_end": 270,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "single",
+                "decimal_value": 0.05454545454545454,
+                "range_start": 271,
+                "range_end": 324,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "double",
+                "decimal_value": 0.05454545454545454,
+                "range_start": 325,
+                "range_end": 378,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "home_run",
+                "decimal_value": 0.09090909090909091,
+                "range_start": 379,
+                "range_end": 468,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "walk",
+                "decimal_value": 0.38181818181818183,
+                "range_start": 469,
+                "range_end": 849,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "strikeout",
+                "decimal_value": 0.12727272727272726,
+                "range_start": 850,
+                "range_end": 976,
+                "count_label": "(3-2)"
+            },
+            {
+                "balls": 3,
+                "strikes": 2,
+                "event": "strikeout_double_play",
+                "decimal_value": 0.01818181818181818,
+                "range_start": 977,
+                "range_end": 994,
+                "count_label": "(3-2)"
+            }
+        ],
+        "lefty_bb_type_summary": [
+            {
+                "bb_type": "fly_ball",
+                "count": 42
+            },
+            {
+                "bb_type": "ground_ball",
+                "count": 46
+            },
+            {
+                "bb_type": "line_drive",
+                "count": 9
+            },
+            {
+                "bb_type": "popup",
+                "count": 18
+            }
+        ],
+        "righty_bb_type_summary": [
+            {
+                "bb_type": "fly_ball",
+                "count": 56
+            },
+            {
+                "bb_type": "ground_ball",
+                "count": 46
+            },
+            {
+                "bb_type": "line_drive",
+                "count": 9
+            },
+            {
+                "bb_type": "popup",
+                "count": 22
+            }
+        ]
+    },
+    "count_frequencies": [
+        {
+            "count_label": "(0-0)",
+            "range_start": 0,
+            "range_end": 107
+        },
+        {
+            "count_label": "(0-1)",
+            "range_start": 108,
+            "range_end": 176
+        },
+        {
+            "count_label": "(0-2)",
+            "range_start": 177,
+            "range_end": 200
+        },
+        {
+            "count_label": "(1-0)",
+            "range_start": 201,
+            "range_end": 266
+        },
+        {
+            "count_label": "(1-1)",
+            "range_start": 267,
+            "range_end": 345
+        },
+        {
+            "count_label": "(1-2)",
+            "range_start": 346,
+            "range_end": 444
+        },
+        {
+            "count_label": "(2-0)",
+            "range_start": 445,
+            "range_end": 471
+        },
+        {
+            "count_label": "(2-1)",
+            "range_start": 472,
+            "range_end": 545
+        },
+        {
+            "count_label": "(2-2)",
+            "range_start": 546,
+            "range_end": 650
+        },
+        {
+            "count_label": "(3-0)",
+            "range_start": 651,
+            "range_end": 729
+        },
+        {
+            "count_label": "(3-1)",
+            "range_start": 730,
+            "range_end": 816
+        },
+        {
+            "count_label": "(3-2)",
+            "range_start": 817,
+            "range_end": 991
+        }
+    ],
+    "distinct_events": [
+        "field_out",
+        "intent_walk",
+        "single",
+        "walk",
+        "home_run",
+        "double",
+        "force_out",
+        "strikeout",
+        "hit_by_pitch",
+        "sac_fly",
+        "triple",
+        "grounded_into_double_play",
+        "strikeout_double_play",
+        "fielders_choice_out",
+        "truncated_pa",
+        "field_error"
+    ]
+}
