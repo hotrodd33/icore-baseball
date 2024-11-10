@@ -1,0 +1,14 @@
+{
+  "(0-0)": {"pitcher": 52, "batter": 48},
+  "(0-1)": {"pitcher": 65, "batter": 35},
+  "(0-2)": {"pitcher": 85, "batter": 15},
+  "(1-0)": {"pitcher": 45, "batter": 55},
+  "(1-1)": {"pitcher": 55, "batter": 45},
+  "(1-2)": {"pitcher": 78, "batter": 22},
+  "(2-0)": {"pitcher": 35, "batter": 65},
+  "(2-1)": {"pitcher": 42, "batter": 58},
+  "(2-2)": {"pitcher": 60, "batter": 40},
+  "(3-0)": {"pitcher": 20, "batter": 80},
+  "(3-1)": {"pitcher": 30, "batter": 70},
+  "(3-2)": {"pitcher": 48, "batter": 52}
+}
