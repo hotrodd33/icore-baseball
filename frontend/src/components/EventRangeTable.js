@@ -1,4 +1,3 @@
-// EventRangeTable.js
 import React from 'react';
 
 const COUNT_ORDER = [
@@ -8,8 +7,8 @@ const COUNT_ORDER = [
 
 const ALL_EVENTS = [
     "field_error", "sac_fly", "field_out_fly_ball", "field_out_popup", 
-    "field_out_line_drive", "field_out_ground_ball", "grounded_into_double_play", 
-    "double_play", "force_out", "fielders_choice_out", "fielders_choice", 
+    "field_out_line_drive", "field_out_ground_ball", "double_play_combined", 
+    "force_out", "fielders_choice_out", "fielders_choice", 
     "catcher_interf", "sac_bunt", "single", "double", "triple", "home_run", 
     "intent_walk", "walk", "hit_by_pitch", "strikeout", "strikeout_double_play", 
     "truncated_pa"
@@ -24,6 +23,7 @@ const EVENT_ALIASES = {
     field_out_ground_ball: "GO",
     grounded_into_double_play: "GDP",
     double_play: "DP",
+    double_play_combined: "DP", // Alias for the combined events
     force_out: "FO",
     fielders_choice_out: "FC",
     fielders_choice: "FC",
@@ -41,6 +41,10 @@ const EVENT_ALIASES = {
     truncated_pa: "TP"
 };
 
+const EVENT_GROUPS = {
+    double_play_combined: ["grounded_into_double_play", "double_play"]
+};
+
 const transformData = (data = []) => {
     if (!Array.isArray(data)) return {};
     
@@ -49,15 +53,32 @@ const transformData = (data = []) => {
         if (!item) return;
         
         const count = `(${item.balls}-${item.strikes})`;
-        const event = item.event;
+        let event = item.event;
+
+        // Check if the event belongs to a grouped event category
+        for (const [group, events] of Object.entries(EVENT_GROUPS)) {
+            if (events.includes(event)) {
+                event = group; // Map the event to its group
+                break;
+            }
+        }
 
         if (!transformed[count]) {
             transformed[count] = {};
         }
-        transformed[count][event] = {
-            range_start: item.range_start ?? null,
-            range_end: item.range_end ?? null,
-        };
+
+        if (!transformed[count][event]) {
+            transformed[count][event] = {
+                range_start: item.range_start ?? null,
+                range_end: item.range_end ?? null,
+                count: item.count ?? 0
+            };
+        } else {
+            // Combine the ranges and counts for grouped events
+            transformed[count][event].count += item.count;
+            transformed[count][event].range_start = Math.min(transformed[count][event].range_start, item.range_start);
+            transformed[count][event].range_end = Math.max(transformed[count][event].range_end, item.range_end);
+        }
     });
     return transformed;
 };
@@ -73,7 +94,7 @@ const EventRangeTable = ({
     const counts = COUNT_ORDER.filter((count) => transformedData[count]);
 
     // Function to check if an event is in the highlighted range
-    const isInHighlightedRange = (eventData, event) => {
+    const isInHighlightedRange = (eventData) => {
         return eventData &&
             highlightedRoll >= eventData.range_start &&
             highlightedRoll <= eventData.range_end;
@@ -109,7 +130,7 @@ const EventRangeTable = ({
                                 {counts.map((count) => {
                                     const eventData = transformedData[count]?.[event];
                                     const isColumnHighlighted = highlightedCount === count;
-                                    const isInRange = isInHighlightedRange(eventData, event);
+                                    const isInRange = isInHighlightedRange(eventData);
                                     const isFullMatch = isEventHighlighted && isColumnHighlighted && isInRange;
 
                                     let className = '';
@@ -127,7 +148,7 @@ const EventRangeTable = ({
                                             className={className}
                                         >
                                             {eventData && eventData.range_start !== null && eventData.range_end !== null
-                                                ? `${eventData.range_start} - ${eventData.range_end}`
+                                                ? `${eventData.range_start} - ${eventData.range_end} (${eventData.count})`
                                                 : ""}
                                         </td>
                                     );

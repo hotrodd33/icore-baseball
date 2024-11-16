@@ -20,6 +20,12 @@ ALL_EVENTS_ORDER = [
     "strikeout", "strikeout_double_play"
 ]
 
+EVENT_GROUPS = {
+    "grounded_into_double_play": "double_play_combined",
+    "double_play": "double_play_combined",
+    # Add more events here if needed
+}
+
 def calculate_event_ranges_for_counts(stats, player_type):
     print(f"Processing stats for {player_type} event ranges")
     stats = stats.dropna(subset=['events'])
@@ -49,22 +55,28 @@ def calculate_ranges(subset):
         grouped_data = []
 
         events_dict = {}
-        for event, event_group in group.groupby('events'):
-            if event == 'field_out':
-                for bb_type, bb_group in event_group.groupby('bb_type'):
-                    bb_count = bb_group.shape[0]
-                    decimal_value = bb_count / total_count
-                    event_name = f"{event}_{bb_type}"
-                    events_dict[event_name] = decimal_value
-            else:
-                event_count = event_group.shape[0]
-                decimal_value = event_count / total_count
-                events_dict[event] = decimal_value
+        event_counts = {}
 
+        for event, event_group in group.groupby('events'):
+            # Combine events based on the grouping dictionary
+            combined_event = EVENT_GROUPS.get(event, event)  # If event is in EVENT_GROUPS, use the mapped value
+
+            if combined_event not in events_dict:
+                events_dict[combined_event] = 0
+                event_counts[combined_event] = 0
+
+            # Calculate percentage and count
+            event_count = event_group.shape[0]
+            events_dict[combined_event] += event_count / total_count
+            event_counts[combined_event] += event_count
+
+        # Create ranges based on combined events
         for event_name in ALL_EVENTS_ORDER:
             if event_name in events_dict:
                 decimal_value = events_dict[event_name]
                 range_size = int(decimal_value * 1000)
+
+                # Append the event with the corrected count as the size of the range
                 grouped_data.append({
                     'balls': int(balls),
                     'strikes': int(strikes),
@@ -72,7 +84,8 @@ def calculate_ranges(subset):
                     'decimal_value': float(decimal_value),
                     'range_start': int(current_start),
                     'range_end': int(current_start + range_size - 1),
-                    'count_label': f"({int(balls)}-{int(strikes)})"
+                    'count_label': f"({int(balls)}-{int(strikes)})",
+                    'count': range_size  # Corrected count to reflect the number of chances
                 })
 
                 current_start += range_size
@@ -200,6 +213,8 @@ def get_both_stats():
                 
                 with open(pitcher_filepath, 'w') as f:
                     json.dump(pitcher_results, f, indent=4)
+    print("Resulting JSON object:")
+    print(json.dumps(results, indent=4))
 
     return jsonify(results)
 
