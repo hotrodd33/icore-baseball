@@ -1,0 +1,15 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+			{
+					"name": "Debug React App",
+					"type": "chrome",
+					"request": "launch",
+					"url": "http://localhost:3000",
+					"webRoot": "/d/source/repos/icorebaseball/frontend/src",
+					"sourceMaps": true,
+					"preLaunchTask": "npm: start",
+					"skipFiles": ["<node_internals>/**"]
+			}
+	]
+}

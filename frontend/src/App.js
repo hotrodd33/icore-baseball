@@ -3,12 +3,13 @@ import axios from "axios";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import SimulationPage from "./SimulationPage";
 import "./App.css";
-import RollResults from "./components/RollResults";
-import CardPreferenceTable from "./components/CardPreferenceTable";
 import cardPreferences from "./card_preference.json";
-import EventRangeTable from "./components/EventRangeTable";
 import testData from "./Test_Data.json";
 import { Loader2 } from "lucide-react";
+import EventRangeTable from "./components/EventRangeTable";
+import RollResults from "./components/RollResults";
+import CardPreferenceTable from "./components/CardPreferenceTable";
+import CountFrequenciesTable from "./components/CountFrequenciesTable";
 import RollResultsModal from "./components/RollResultsModal";
 
 const ALL_EVENTS = ["field_error", "sac_fly", "field_out_fly_ball", "field_out_popup", "field_out_line_drive", "field_out_ground_ball", "grounded_into_double_play", "double_play", "force_out", "fielders_choice_out", "fielders_choice", "catcher_interf", "sac_bunt", "single", "double", "triple", "home_run", "intent_walk", "walk", "hit_by_pitch", "strikeout", "strikeout_double_play", "truncated_pa"];
@@ -55,42 +56,6 @@ const transformData = (data) => {
         };
     });
     return transformed;
-};
-
-const CountFrequenciesTable = ({ data, highlightedCount, randomRoll }) => {
-    const calculatePercentage = (rangeStart, rangeEnd) => {
-        const rangeSize = rangeEnd - rangeStart + 1;
-        const percentage = (rangeSize / 1000) * 100;
-        return percentage.toFixed(1);
-    };
-
-    return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Count</th>
-                    <th>Range</th>
-                    <th>%</th>
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((item, index) => {
-                    const isHighlighted = randomRoll >= item.range_start && randomRoll <= item.range_end;
-                    const percentage = calculatePercentage(item.range_start, item.range_end);
-
-                    return (
-                        <tr key={index} className={isHighlighted ? "highlighted-event" : ""}>
-                            <td>{item.count_label}</td>
-                            <td>
-                                {item.range_start} - {item.range_end}
-                            </td>
-                            <td className='percentage-cell'>{percentage}%</td>
-                        </tr>
-                    );
-                })}
-            </tbody>
-        </table>
-    );
 };
 
 function HomePage() {
