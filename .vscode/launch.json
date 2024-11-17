@@ -1,24 +1,34 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-      {
-          "name": "Attach to React App (Chrome)",
-          "type": "chrome",
-          "request": "launch",
-          "url": "http://localhost:3000",
-          "webRoot": "${workspaceFolder}/frontend/src",
-          "sourceMaps": true,
-          "skipFiles": ["<node_internals>/**"]
-      },
-      {
-          "name": "Attach to React App (Node)",
-          "type": "pwa-node",
-          "request": "attach",
-          "port": 9229,
-          "restart": true,
-          "skipFiles": ["<node_internals>/**"],
-          "sourceMaps": true,
-          "protocol": "inspector"
-      }
-  ]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to React App (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/frontend/src",
+            "sourceMaps": true,
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "name": "Attach to React App (Node)",
+            "type": "pwa-node",
+            "request": "attach",
+            "port": 9229,
+            "restart": true,
+            "skipFiles": ["<node_internals>/**"],
+            "sourceMaps": true,
+            "protocol": "inspector"
+        },
+        {
+            "name": "Python Debugger: Python File",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/app.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe", // For Windows
+            // or
+            //"pythonPath": "${workspaceFolder}/.venv/bin/python"  // For Linux/macOS
+            "console": "integratedTerminal" // Optional, to use VS Code terminal
+        }
+    ]
 }

@@ -1,18 +1,19 @@
-/* General reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Main page container */
+body {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
 .page-container {
-    padding-top: 80px; /* Adjust based on the height of the navigation bar */
-    background-color: #f4f1e6; /* Light sepia tone for a vintage feel */
+    padding-top: 80px;
+    background-color: #f4f1e6;
     color: #333;
 }
 
-/* Navigation bar */
 .header-navigation {
     position: fixed;
     top: 0;
@@ -20,7 +21,7 @@
     width: 100%;
     background-color: #04441d;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px #0003;
     padding: 15px 0;
 }
 
@@ -32,20 +33,15 @@
 }
 
 .main-navigation a {
-    color: #e3dab7; /* Light sepia for vintage contrast */
+    color: #e3dab7;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 5px;
     transition: color 0.2s;
 }
 
-.main-navigation a:hover {
-    color: #ffffff; /* Darker brown */
-}
-
-/* Headings */
 h1,
 h2,
 h3 {
@@ -53,18 +49,13 @@ h3 {
     margin-bottom: 10px;
 }
 
-.dice-roll-container h2 {
-    color: #fff;
-}
-
-/* Button styling */
 button {
     background-color: #156b05;
     color: #f4f1e6;
     padding: 10px 20px;
     border: none;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
@@ -75,7 +66,6 @@ button:hover {
     background-color: #06402b;
 }
 
-/* Player lookup form */
 .player-lookup-container {
     display: flex;
     justify-content: center;
@@ -85,7 +75,7 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 5px 10px;
     border: 2px solid #ddd;
 }
@@ -98,112 +88,34 @@ button:hover {
 }
 
 .player-lookup-container label {
-    font-weight: bold;
+    font-weight: 700;
     color: #333;
-}
-
-/* Table styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-}
-
-table th,
-table td {
-    border: 1px solid #ddd;
-    width: 100px;
-    text-align: center;
-    height: 10px;
-}
-
-table th {
-    background-color: #2e2e2e;
-    color: #f4f1e6;
-    font-weight: bold;
-}
-
-.pitcher {
-    background-color: #d32f2f;
-}
-
-table tbody tr:nth-child(even) {
-    background-color: #f4f1e6;
-}
-
-table tbody tr:hover {
-    background-color: #e0dac9;
-}
-
-/* Event range tables and dice roll container */
-.event-range-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.event-range-tables {
-    font-size: 10px;
-    flex: 3;
-    display: flex;
-    gap: 20px;
 }
 
 .dice-roll-container {
     display: flex;
     justify-content: space-around;
     padding: 15px;
-    background-color: #ffffff;
+    background-color: #fff;
     border: 2px solid #ddd;
     border-radius: 8px;
     background-color: #0d4d03;
 }
 
-/* Roll results */
-.roll-results {
-    display: flex;
-    gap: 4px;
-    margin: 8px 0;
+.main-navigation a:hover,
+.dice-roll-container h2 {
+    color: #fff;
 }
 
-.roll-digit {
-    width: 24px;
-    height: 24px;
-    font-size: 18px;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    color: #ffffff;
-}
-
-/* Roll digit colors */
-.red {
-    background-color: #d32f2f;
-}
-
-.white {
-    background-color: #ffffff;
-    color: #333;
-    border: 1px solid #ddd;
-}
-
-.blue {
-    background-color: #1976d2;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .main-navigation ul {
         gap: 20px;
     }
+
     .player-lookup-container form {
         flex-direction: column;
     }
+
     .dice-roll-container,
     .event-range-container {
         flex-direction: column;
@@ -211,166 +123,85 @@ table tbody tr:hover {
     }
 }
 
-/* General print settings */
-@media print {
-    body {
-        font-family: Georgia, serif;
-        color: #333;
-        margin: 1in;
-    }
-
-    /* Hide elements not needed for printing */
-    .player-lookup-container,
-    nav,
-    .header-navigation,
-    button,
-    .dice-roll-container {
-        display: none;
-    }
-
-    /* Style for player name at the top */
-    .player-name {
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 10px;
-        color: #000;
-    }
-
-    /* Page 1: Pitch Count and Card Preferences side by side */
-    .pitch-count-and-card-preference {
-        display: flex;
-        justify-content: space-between;
-        page-break-after: always; /* Separate pages for print */
-    }
-
-    /* Individual table styling */
-    .pitch-count-and-card-preference table {
-        width: 48%;
-        border-collapse: collapse;
-        font-size: 10px;
-    }
-
-    .pitch-count-and-card-preference th,
-    .pitch-count-and-card-preference td {
-        border: 1px solid #000;
-        padding: 8px;
-        text-align: center;
-    }
-
-    /* Page 2: Event Range Tables stacked vertically */
-    .event-range-container {
-        display: block;
-        margin-top: 20px;
-        page-break-before: always; /* Force page break for event tables */
-    }
-
-    .event-range-tables {
-        display: block;
-    }
-
-    /* Style for each Event Range table */
-    .event-range-container table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 10px;
-    }
-
-    .event-range-container th,
-    .event-range-container td {
-        border: 1px solid #000;
-        padding: 5px;
-        text-align: center;
-    }
-
-    /* Table headers styling */
-    th {
-        background-color: #ccc;
-        color: #000;
-        font-weight: bold;
-    }
-
-    /* Ensure only 2 pages */
-    @page {
-        size: auto;
-    }
-}
-
-/* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 table th,
 table td {
-    border: 1px solid #ddd;
+    border: 1px solid #bababa;
     text-align: center;
+    width: 60px;
 }
 
-/* Header styling */
 table th {
     background-color: #2e2e2e;
     color: #f4f1e6;
-    font-weight: bold;
+    font-weight: 700;
 }
 
-/* Highlighting styles - Add these to your existing CSS */
-
-tr.highlighted-event, td.highlighted-event, th.highlighted-column, td.highlighted-column {
-  background-color: rgba(203, 203, 203, 0.686) !important; /* Light yellow */
-  color:#000;
+tr.highlighted-event,
+td.highlighted-event,
+th.highlighted-column,
+td.highlighted-column {
+    background-color: #cbf4ad6a !important;
+    color: #000;
 }
 
 .highlighted-cell {
-    background-color: #b2e03f !important; /* Bright green */
-    font-weight: bold;
+    background-color: #b7fe01 !important;
+    font-weight: 700;
     z-index: 2;
     position: relative;
 }
 
-/* Override hover effect for highlighted rows */
 table tbody tr.highlighted-event:hover {
-    background-color: rgba(247, 230, 166, 0.5) !important;
+    background-color: #f7e6a680 !important;
 }
 
-/* Rolling animation styles */
 .rolling {
     background-color: #0d4d03 !important;
     cursor: not-allowed !important;
 }
 
-/* Add these to your existing roll results styles */
 .roll-results {
     transition: all 0.1s ease-in-out;
 }
 
 .roll-results.rolling .roll-digit {
-    animation: pulse 0.5s infinite;
+    animation: rotate 0.1s linear infinite;
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
     50% {
         transform: scale(1.05);
     }
+
+    0%,
     100% {
         transform: scale(1);
     }
 }
 
-/* Result tables container */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .result-tables-container {
     display: flex;
     gap: 20px;
     transition: all 0.3s ease;
 }
 
-/* Player results styling */
 .player-results {
     flex: 1;
     padding: 20px;
@@ -384,37 +215,17 @@ table tbody tr.highlighted-event:hover {
     text-align: center;
 }
 
-/* Active card styling */
-.active-card {
-    background-color: rgba(178, 224, 63, 0.1);
-    border-color: #b2e03f;
-    box-shadow: 0 4px 12px rgba(178, 224, 63, 0.2);
-    transform: scale(1.02);
-    z-index: 2;
+.batter-results,
+.pitcher-results {
+    border-color: #666;
 }
-
-/* Inactive card styling */
-.inactive-card {
-    opacity: 0.5;
-    filter: grayscale(20%);
-    transform: scale(0.91);
-}
-
-/* Specific styling for pitcher/batter results */
-
-.batter-results, .pitcher-results {
-    border-color: #666666;
-}
-
-/* Active states */
 
 .active-card {
     border-color: #156b05;
-    background-color: rgba(21, 107, 5, 0.1);
-    box-shadow: 0 4px 12px rgba(21, 107, 5, 0.2);
+    background-color: #156b051a;
+    box-shadow: 0 4px 12px #156b0533;
 }
 
-/* Hover effects */
 .player-results:hover {
     transform: scale(1.01);
 }
@@ -423,7 +234,17 @@ table tbody tr.highlighted-event:hover {
     transform: scale(1.03);
 }
 
-/* Responsive adjustments */
+.count-result-container {
+  display: flex; /* Make the container use flexbox */
+  justify-content: space-between; /* Add some spacing between the elements */
+  gap: 20px; /* Adjust the space between the two elements as needed */
+}
+
+.count-result, .card-preference {
+  flex: 1; /* Distribute equal space to both components */
+  max-width: 50%; /* Ensure that they don't exceed 50% of the container width */
+}
+
 @media (max-width: 1200px) {
     .result-tables-container {
         flex-direction: column;
@@ -434,137 +255,94 @@ table tbody tr.highlighted-event:hover {
     }
 }
 
-/* Loading overlay */
 .loading-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
 }
 
 .spinner-container {
-  background-color: white;
-  padding: 30px 40px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 12px #00000026;
 }
 
 .spinner {
-  color: #156b05;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
+    color: #156b05;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
 }
 
 .loading-text {
-  color: #333;
-  font-size: 16px;
-  font-weight: 500;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 @keyframes spin {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-/* Disable interactions while loading */
 .loading-overlay ~ * {
-  pointer-events: none;
-  user-select: none;
+    pointer-events: none;
+    user-select: none;
 }
 
-/* Optional: Add a fade effect when the overlay appears */
 .loading-overlay {
-  animation: fadeIn 0.2s ease-in-out;
+    animation: fadeIn 0.2s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
-/* Roll Results Modal Styles */
-.roll-results-content {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 8px;
-  font-size: 12px;
+.fill-bar-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
-.result-section {
-  padding: 8px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #e9ecef;
+.fill-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #6eb1e996;
+    z-index: 1;
+    transition: width 0.5s ease-in-out;
 }
 
-.count-section {
-  text-align: center;
-  background-color: rgba(21, 107, 5, 0.1);
-}
-
-.card-section {
-  text-align: center;
-}
-
-.event-section {
-  background-color: white;
-}
-
-.event-result {
-  padding: 4px;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-  text-align: center;
-}
-
-.rolls-section {
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Animation for modal appearance */
-@keyframes slideUp {
-  from {
-      transform: translateY(20px);
-      opacity: 0;
-  }
-  to {
-      transform: translateY(0);
-      opacity: 1;
-  }
-}
-
-.roll-results-content {
-  animation: slideUp 0.3s ease-out;
-}
-
-.results-modal {
-  position: fixed;
-  top: 100px;
-  background: #fff;
-  z-index: 999;
-  left: 50%;
-  right: 0;
-  width: 180px;
+.range-text {
+    position: relative;
+    z-index: 2;
+    padding: 4px;
+    white-space: nowrap;
+    color: #333;
+    line-height: 15px;
 }

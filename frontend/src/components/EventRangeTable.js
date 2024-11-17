@@ -1,103 +1,55 @@
-import React from 'react';
+import React from "react";
 
-const COUNT_ORDER = [
-    "(0-2)", "(1-2)", "(2-2)", "(3-2)", "(0-1)", "(1-1)", "(2-1)", "(3-1)", 
-    "(0-0)", "(1-0)", "(2-0)", "(3-0)"
-];
+const COUNT_ORDER = ["(0-2)", "(1-2)", "(2-2)", "(3-2)", "(0-1)", "(1-1)", "(2-1)", "(3-1)", "(0-0)", "(1-0)", "(2-0)", "(3-0)"];
 
-const ALL_EVENTS = [
-    "field_error", "sac_fly", "field_out_fly_ball", "field_out_popup", 
-    "field_out_line_drive", "field_out_ground_ball", "double_play_combined", 
-    "force_out", "fielders_choice_out", "fielders_choice", 
-    "catcher_interf", "sac_bunt", "single", "double", "triple", "home_run", 
-    "intent_walk", "walk", "hit_by_pitch", "strikeout", "strikeout_double_play", 
-    "truncated_pa"
-];
+const ALL_EVENTS = ["field_error", "field_out_fly_ball", "field_out_popup", "field_out_line_drive", "field_out_ground_ball", "double_play_combined", "single", "double", "triple", "home_run", "walk", "hit_by_pitch", "strikeout"];
 
 const EVENT_ALIASES = {
-    field_error: "E",
-    sac_fly: "SF",
-    field_out_fly_ball: "FO",
-    field_out_popup: "PO",
-    field_out_line_drive: "LO",
-    field_out_ground_ball: "GO",
-    grounded_into_double_play: "GDP",
-    double_play: "DP",
-    double_play_combined: "DP", // Alias for the combined events
-    force_out: "FO",
-    fielders_choice_out: "FC",
-    fielders_choice: "FC",
-    catcher_interf: "CI",
-    sac_bunt: "SAC",
-    single: "1B",
-    double: "2B",
-    triple: "3B",
-    home_run: "HR",
-    intent_walk: "IBB",
-    walk: "BB",
-    hit_by_pitch: "HBP",
-    strikeout: "K",
-    strikeout_double_play: "KDP",
-    truncated_pa: "TP"
-};
-
-const EVENT_GROUPS = {
-    double_play_combined: ["grounded_into_double_play", "double_play"]
+    field_error: "Error?",
+    field_out_fly_ball: "Flyball",
+    field_out_popup: "Popup",
+    field_out_line_drive: "Liner",
+    field_out_ground_ball: "Groundball",
+    double_play_combined: "Hard GB",
+    single: "Single",
+    double: "Double",
+    triple: "Triple",
+    home_run: "Home Run",
+    walk: "Walk",
+    hit_by_pitch: "Hit by Pitch",
+    strikeout: "Strikeout",
 };
 
 const transformData = (data = []) => {
     if (!Array.isArray(data)) return {};
-    
+
     const transformed = {};
     data.forEach((item) => {
         if (!item) return;
-        
-        const count = `(${item.balls}-${item.strikes})`;
-        let event = item.event;
 
-        // Check if the event belongs to a grouped event category
-        for (const [group, events] of Object.entries(EVENT_GROUPS)) {
-            if (events.includes(event)) {
-                event = group; // Map the event to its group
-                break;
-            }
-        }
+        const count = `(${item.balls}-${item.strikes})`;
+        const event = item.event;
 
         if (!transformed[count]) {
             transformed[count] = {};
         }
-
-        if (!transformed[count][event]) {
-            transformed[count][event] = {
-                range_start: item.range_start ?? null,
-                range_end: item.range_end ?? null,
-                count: item.count ?? 0
-            };
-        } else {
-            // Combine the ranges and counts for grouped events
-            transformed[count][event].count += item.count;
-            transformed[count][event].range_start = Math.min(transformed[count][event].range_start, item.range_start);
-            transformed[count][event].range_end = Math.max(transformed[count][event].range_end, item.range_end);
-        }
+        transformed[count][event] = {
+            range_start: item.range_start ?? null,
+            range_end: item.range_end ?? null,
+            chances: item.chances ?? null,
+            chance_bar_width: item.chance_bar_width ?? null,
+        };
     });
     return transformed;
 };
 
-const EventRangeTable = ({ 
-    data = [], 
-    title = '', 
-    highlightedCount, 
-    highlightedEvents = [], 
-    highlightedRoll 
-}) => {
+const EventRangeTable = ({ data = [], title = "", highlightedCount, highlightedEvents = [], highlightedRoll }) => {
     const transformedData = transformData(data);
     const counts = COUNT_ORDER.filter((count) => transformedData[count]);
 
     // Function to check if an event is in the highlighted range
     const isInHighlightedRange = (eventData) => {
-        return eventData &&
-            highlightedRoll >= eventData.range_start &&
-            highlightedRoll <= eventData.range_end;
+        return eventData && highlightedRoll >= eventData.range_start && highlightedRoll <= eventData.range_end;
     };
 
     return (
@@ -106,12 +58,9 @@ const EventRangeTable = ({
             <table>
                 <thead>
                     <tr>
-                        <th>Event</th>
+                        <th>Play Result</th>
                         {counts.map((count) => (
-                            <th 
-                                key={count} 
-                                className={highlightedCount === count ? "highlighted-column" : ""}
-                            >
+                            <th key={count} className={`${count.includes("-2") ? "pitcher-advantage" : count.includes("-1") ? "neutral-advantage" : count.includes("-0") ? "batter-advantage" : ""}`}>
                                 {count}
                             </th>
                         ))}
@@ -119,37 +68,33 @@ const EventRangeTable = ({
                 </thead>
                 <tbody>
                     {ALL_EVENTS.map((event) => {
-                        // Check if this event is highlighted in any count
                         const isEventHighlighted = highlightedEvents.includes(event);
-                        
+
                         return (
                             <tr key={event}>
-                                <td className={isEventHighlighted ? "highlighted-event" : ""}>
-                                    {EVENT_ALIASES[event] || event}
-                                </td>
+                                <td className={isEventHighlighted ? "highlighted-event" : ""}>{EVENT_ALIASES[event] || event}</td>
                                 {counts.map((count) => {
                                     const eventData = transformedData[count]?.[event];
                                     const isColumnHighlighted = highlightedCount === count;
-                                    const isInRange = isInHighlightedRange(eventData);
+                                    const isInRange = isInHighlightedRange(eventData, event);
                                     const isFullMatch = isEventHighlighted && isColumnHighlighted && isInRange;
+                                    const fillPercentage = eventData?.chance_bar_width ?? 0;
 
-                                    let className = '';
+                                    let className = "";
                                     if (isFullMatch) {
-                                        className = 'highlighted-cell';
+                                        className = "highlighted-cell";
                                     } else if (isEventHighlighted) {
-                                        className = 'highlighted-event';
+                                        className = "highlighted-event";
                                     } else if (isColumnHighlighted) {
-                                        className = 'highlighted-column';
+                                        className = "highlighted-column";
                                     }
 
                                     return (
-                                        <td
-                                            key={`${event}-${count}`}
-                                            className={className}
-                                        >
-                                            {eventData && eventData.range_start !== null && eventData.range_end !== null
-                                                ? `${eventData.range_start} - ${eventData.range_end} (${eventData.count})`
-                                                : ""}
+                                        <td key={`${event}-${count}`} className={className}>
+                                            <div className='fill-bar-container'>
+                                                <div className='fill-bar' style={{ width: `${fillPercentage}%` }}></div>
+                                                {eventData && eventData.range_start !== null && eventData.range_end !== null && <span className='range-text'>{`${eventData.range_start} - ${eventData.range_end}`}</span>}
+                                            </div>
                                         </td>
                                     );
                                 })}

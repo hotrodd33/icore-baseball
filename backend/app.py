@@ -14,17 +14,30 @@ DATA_FOLDER = "data"
 os.makedirs(DATA_FOLDER, exist_ok=True)
 
 ALL_EVENTS_ORDER = [
-    "field_error", "sac_fly", "field_out_fly_ball", "field_out_popup", "field_out_line_drive", "field_out_ground_ball",
-    "grounded_into_double_play", "double_play", "force_out", "fielders_choice_out", "fielders_choice", "catcher_interf", 
-    "sac_bunt", "single", "double", "triple", "home_run", "intent_walk", "walk", "hit_by_pitch",
-    "strikeout", "strikeout_double_play"
+    "field_error", "field_out_fly_ball", "field_out_popup", "field_out_line_drive", "field_out_ground_ball",
+    "double_play_combined", "catcher_interf",
+    "single", "double", "triple", "home_run", "walk", "hit_by_pitch",
+    "strikeout"
 ]
 
+# Update EVENT_GROUPS to only combine necessary events, leaving out field outs to be distinct
 EVENT_GROUPS = {
     "grounded_into_double_play": "double_play_combined",
     "double_play": "double_play_combined",
-    # Add more events here if needed
+    "sac_fly": "field_out_fly_ball",
+    "strikeout": "strikeout",
+    "strikeout_double_play": "strikeout",
+    "fielders_choice_out": "field_out_ground_ball",
+    "fielders_choice": "field_out_ground_ball",
+    "sac_bunt": "field_out_ground_ball",
+    "force_out": "field_out_ground_ball",
+    "intent_walk": "walk",
+    "walk": "walk",
+    "catcher_interf": "walk",
+    # You can add more mappings if necessary
 }
+
+COUNT_ORDER = ["(0-2)", "(1-2)", "(2-2)", "(3-2)", "(0-1)", "(1-1)", "(2-1)", "(3-1)", "(0-0)", "(1-0)", "(2-0)", "(3-0)"]
 
 def calculate_event_ranges_for_counts(stats, player_type):
     print(f"Processing stats for {player_type} event ranges")
@@ -58,19 +71,40 @@ def calculate_ranges(subset):
         event_counts = {}
 
         for event, event_group in group.groupby('events'):
-            # Combine events based on the grouping dictionary
-            combined_event = EVENT_GROUPS.get(event, event)  # If event is in EVENT_GROUPS, use the mapped value
+            # Combine events based on the grouping dictionary if applicable
+            combined_event = EVENT_GROUPS.get(event, event)
 
-            if combined_event not in events_dict:
-                events_dict[combined_event] = 0
-                event_counts[combined_event] = 0
+            if event == 'field_out':
+                # Further classify field_out based on bb_type (batted ball type)
+                for bb_type, bb_group in event_group.groupby('bb_type'):
+                    if bb_type == 'fly_ball':
+                        combined_event = 'field_out_fly_ball'
+                    elif bb_type == 'popup':
+                        combined_event = 'field_out_popup'
+                    elif bb_type == 'line_drive':
+                        combined_event = 'field_out_line_drive'
+                    elif bb_type == 'ground_ball':
+                        combined_event = 'field_out_ground_ball'
 
-            # Calculate percentage and count
-            event_count = event_group.shape[0]
-            events_dict[combined_event] += event_count / total_count
-            event_counts[combined_event] += event_count
+                    if combined_event not in events_dict:
+                        events_dict[combined_event] = 0
+                        event_counts[combined_event] = 0
 
-        # Create ranges based on combined events
+                    # Calculate percentage and count
+                    event_count = bb_group.shape[0]
+                    events_dict[combined_event] += event_count / total_count
+                    event_counts[combined_event] += event_count
+            else:
+                if combined_event not in events_dict:
+                    events_dict[combined_event] = 0
+                    event_counts[combined_event] = 0
+
+                # Calculate percentage and count
+                event_count = event_group.shape[0]
+                events_dict[combined_event] += event_count / total_count
+                event_counts[combined_event] += event_count
+
+        # Create ranges based on individual events, including grouped events distinctly
         for event_name in ALL_EVENTS_ORDER:
             if event_name in events_dict:
                 decimal_value = events_dict[event_name]
@@ -85,16 +119,22 @@ def calculate_ranges(subset):
                     'range_start': int(current_start),
                     'range_end': int(current_start + range_size - 1),
                     'count_label': f"({int(balls)}-{int(strikes)})",
-                    'count': range_size  # Corrected count to reflect the number of chances
+                    'chances': round(decimal_value * 100, 2),
+                    'chance_bar_width': int(decimal_value * 100)
                 })
 
                 current_start += range_size
                 if current_start > 999:
                     current_start = 999
 
+        # Adjust the last range to end at 999 if necessary
+        if grouped_data and grouped_data[-1]['range_end'] != 999:
+            grouped_data[-1]['range_end'] = 999
+
         event_ranges.extend(grouped_data)
 
     return event_ranges
+
 
 def calculate_count_frequencies(stats):
     stats_with_results = stats.dropna(subset=['events'])
@@ -106,6 +146,15 @@ def calculate_count_frequencies(stats):
     count_frequencies = stats_with_results.groupby(['balls', 'strikes']).size().reset_index(name='count')
     total_counts = count_frequencies['count'].sum()
     count_frequencies['percentage'] = (count_frequencies['count'] / total_counts) * 100
+
+    # Sort count_frequencies by the same order as COUNT_ORDER
+    count_frequencies['count_label'] = count_frequencies.apply(
+        lambda row: f"({int(row['balls'])}-{int(row['strikes'])})", axis=1
+    )
+    count_frequencies['count_label'] = pd.Categorical(
+        count_frequencies['count_label'], categories=COUNT_ORDER, ordered=True
+    )
+    count_frequencies = count_frequencies.sort_values('count_label')
 
     current_start = 0
     count_frequencies['range_start'] = 0
@@ -119,10 +168,10 @@ def calculate_count_frequencies(stats):
 
         if current_start > 999:
             current_start = 999
+            count_frequencies.at[i, 'range_end'] = 999
 
-    count_frequencies['count_label'] = count_frequencies.apply(
-        lambda row: f"({int(row['balls'])}-{int(row['strikes'])})", axis=1
-    )
+    # Remove NaN values that may have arisen
+    count_frequencies.dropna(subset=['count_label'], inplace=True)
 
     return count_frequencies[['count_label', 'range_start', 'range_end']].astype({
         'range_start': int,
@@ -138,10 +187,10 @@ def get_player_stats(first_name, last_name, year):
     try:
         batter_stats = statcast_batter(f'{year}-03-25', f'{year}-10-31', player_id)
         pitcher_stats = statcast_pitcher(f'{year}-03-25', f'{year}-10-31', player_id)
-        
+
         if batter_stats.empty and pitcher_stats.empty:
             return None, f"No stats available for {first_name} {last_name} in {year}"
-            
+
         return {
             "batter": batter_stats if not batter_stats.empty else None,
             "pitcher": pitcher_stats if not pitcher_stats.empty else None
@@ -154,7 +203,7 @@ def get_both_stats():
     data = request.json
     batter_data = data.get('batter', {})
     pitcher_data = data.get('pitcher', {})
-    
+
     results = {
         "batter": None,
         "pitcher": None
@@ -183,7 +232,7 @@ def get_both_stats():
                     "count_frequencies": calculate_count_frequencies(batter_stats).to_dict(orient='records')
                 }
                 results["batter"] = batter_results
-                
+
                 with open(batter_filepath, 'w') as f:
                     json.dump(batter_results, f, indent=4)
 
@@ -210,11 +259,9 @@ def get_both_stats():
                     "count_frequencies": calculate_count_frequencies(pitcher_stats).to_dict(orient='records')
                 }
                 results["pitcher"] = pitcher_results
-                
+
                 with open(pitcher_filepath, 'w') as f:
                     json.dump(pitcher_results, f, indent=4)
-    print("Resulting JSON object:")
-    print(json.dumps(results, indent=4))
 
     return jsonify(results)
 

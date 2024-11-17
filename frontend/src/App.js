@@ -11,52 +11,7 @@ import RollResults from "./components/RollResults";
 import CardPreferenceTable from "./components/CardPreferenceTable";
 import CountFrequenciesTable from "./components/CountFrequenciesTable";
 import RollResultsModal from "./components/RollResultsModal";
-
-const ALL_EVENTS = ["field_error", "sac_fly", "field_out_fly_ball", "field_out_popup", "field_out_line_drive", "field_out_ground_ball", "grounded_into_double_play", "double_play", "force_out", "fielders_choice_out", "fielders_choice", "catcher_interf", "sac_bunt", "single", "double", "triple", "home_run", "intent_walk", "walk", "hit_by_pitch", "strikeout", "strikeout_double_play", "truncated_pa"];
-
-const COUNT_ORDER = ["(0-2)", "(1-2)", "(2-2)", "(3-2)", "(0-1)", "(1-1)", "(2-1)", "(3-1)", "(0-0)", "(1-0)", "(2-0)", "(3-0)"];
-const EVENT_ALIASES = {
-    field_error: "E",
-    sac_fly: "SF",
-    field_out_fly_ball: "FO",
-    field_out_popup: "PO",
-    field_out_line_drive: "LO",
-    field_out_ground_ball: "GO",
-    grounded_into_double_play: "GDP",
-    double_play: "DP",
-    force_out: "FO",
-    fielders_choice_out: "FC",
-    fielders_choice: "FC",
-    catcher_interf: "CI",
-    sac_bunt: "SAC",
-    single: "1B",
-    double: "2B",
-    triple: "3B",
-    home_run: "HR",
-    intent_walk: "IBB",
-    walk: "BB",
-    hit_by_pitch: "HBP",
-    strikeout: "K",
-    strikeout_double_play: "KDP",
-    truncated_pa: "TP",
-};
-
-const transformData = (data) => {
-    const transformed = {};
-    data.forEach((item) => {
-        const count = `(${item.balls}-${item.strikes})`;
-        const event = item.event;
-
-        if (!transformed[count]) {
-            transformed[count] = {};
-        }
-        transformed[count][event] = {
-            range_start: item.range_start ?? null,
-            range_end: item.range_end ?? null,
-        };
-    });
-    return transformed;
-};
+import RollDice from "./components/RollDice";
 
 function HomePage() {
     const [firstRandom, setFirstRandom] = useState(null);
@@ -249,7 +204,7 @@ function HomePage() {
                         });
 
                         // Show modal after a short delay
-                        console.log('Opening modal with data:', rollResultsData);
+                        console.log("Opening modal with data:", rollResultsData);
                         setTimeout(() => setIsModalOpen(true), 500);
                     }
                 }
@@ -276,111 +231,113 @@ function HomePage() {
                     </div>
                 </div>
             )}
-            <div className='page-container'>
-                <div className='header-container'>
-                    <div className='player-lookup-container'>
-                        <form onSubmit={handleSubmit} className='dual-form'>
-                            <div className='form-section batter-form'>
-                                <h2>Batter Lookup</h2>
-                                <div className='pagination-controls'>
-                                    <button type='button' onClick={prevBatter} disabled={currentBatterIndex === 0} className='pagination-button'>
-                                        ←
-                                    </button>
-                                    <span className='pagination-info'>
-                                        {currentBatterIndex + 1} / {testData.batters.length}
-                                    </span>
-                                    <button type='button' onClick={nextBatter} disabled={currentBatterIndex === testData.batters.length - 1} className='pagination-button'>
-                                        →
-                                    </button>
-                                </div>
-                                <input type='text' placeholder='First Name' value={batterFirstName} onChange={(e) => setBatterFirstName(e.target.value)} />
-                                <input type='text' placeholder='Last Name' value={batterLastName} onChange={(e) => setBatterLastName(e.target.value)} />
-                                <input type='text' placeholder='Year' value={batterYear} onChange={(e) => setBatterYear(e.target.value)} />
+            <div className='header-container'>
+                <div className='player-lookup-container'>
+                    <form onSubmit={handleSubmit} className='dual-form'>
+                        <div className='form-section batter-form'>
+                            <h2>Batter Lookup</h2>
+                            <div className='pagination-controls'>
+                                <button type='button' onClick={prevBatter} disabled={currentBatterIndex === 0} className='pagination-button'>
+                                    ←
+                                </button>
+                                <span className='pagination-info'>
+                                    {currentBatterIndex + 1} / {testData.batters.length}
+                                </span>
+                                <button type='button' onClick={nextBatter} disabled={currentBatterIndex === testData.batters.length - 1} className='pagination-button'>
+                                    →
+                                </button>
                             </div>
+                            <input type='text' placeholder='First Name' value={batterFirstName} onChange={(e) => setBatterFirstName(e.target.value)} />
+                            <input type='text' placeholder='Last Name' value={batterLastName} onChange={(e) => setBatterLastName(e.target.value)} />
+                            <input type='text' placeholder='Year' value={batterYear} onChange={(e) => setBatterYear(e.target.value)} />
+                        </div>
 
-                            <div className='form-section pitcher-form'>
-                                <h2>Pitcher Lookup</h2>
-                                <div className='pagination-controls'>
-                                    <button type='button' onClick={prevPitcher} disabled={currentPitcherIndex === 0} className='pagination-button'>
-                                        ←
-                                    </button>
-                                    <span className='pagination-info'>
-                                        {currentPitcherIndex + 1} / {testData.pitchers.length}
-                                    </span>
-                                    <button type='button' onClick={nextPitcher} disabled={currentPitcherIndex === testData.pitchers.length - 1} className='pagination-button'>
-                                        →
-                                    </button>
-                                </div>
-                                <input type='text' placeholder='First Name' value={pitcherFirstName} onChange={(e) => setPitcherFirstName(e.target.value)} />
-                                <input type='text' placeholder='Last Name' value={pitcherLastName} onChange={(e) => setPitcherLastName(e.target.value)} />
-                                <input type='text' placeholder='Year' value={pitcherYear} onChange={(e) => setPitcherYear(e.target.value)} />
+                        <div className='form-section pitcher-form'>
+                            <h2>Pitcher Lookup</h2>
+                            <div className='pagination-controls'>
+                                <button type='button' onClick={prevPitcher} disabled={currentPitcherIndex === 0} className='pagination-button'>
+                                    ←
+                                </button>
+                                <span className='pagination-info'>
+                                    {currentPitcherIndex + 1} / {testData.pitchers.length}
+                                </span>
+                                <button type='button' onClick={nextPitcher} disabled={currentPitcherIndex === testData.pitchers.length - 1} className='pagination-button'>
+                                    →
+                                </button>
                             </div>
+                            <input type='text' placeholder='First Name' value={pitcherFirstName} onChange={(e) => setPitcherFirstName(e.target.value)} />
+                            <input type='text' placeholder='Last Name' value={pitcherLastName} onChange={(e) => setPitcherLastName(e.target.value)} />
+                            <input type='text' placeholder='Year' value={pitcherYear} onChange={(e) => setPitcherYear(e.target.value)} />
+                        </div>
 
-                            <button type='submit'>Get Stats</button>
-                        </form>
+                        <button type='submit'>Get Stats</button>
+                    </form>
+                </div>
+
+                <div className='dice-roll-container'>
+                    <button onClick={generateRandomNumbers} disabled={isRolling} className={isRolling ? "rolling" : ""}>
+                        {isRolling ? "Rolling..." : "Roll Dice"}
+                    </button>
+                    <div>
+                        <h2>Pitch Count Roll</h2>
+                        <div className='roll-result'>
+                            <RollDice roll={firstRandom} isRolling={isRolling} />
+                        </div>
                     </div>
-
-                    <div className='dice-roll-container'>
-                        <button onClick={generateRandomNumbers} disabled={isRolling} className={isRolling ? "rolling" : ""}>
-                            {isRolling ? "Rolling..." : "Roll Dice"}
-                        </button>
-                        <div>
-                            <h2>Pitch Count Roll</h2>
-                            <div className='roll-result'>
-                                <RollResults roll={firstRandom} isRolling={isRolling} />
-                            </div>
+                    <div>
+                        <h2>Player Card Roll</h2>
+                        <div className='roll-result'>
+                            <RollResults roll={secondRandom} isRolling={isRolling} />
                         </div>
-                        <div>
-                            <h2>Player Card Roll</h2>
-                            <div className='roll-result'>
-                                <RollResults roll={secondRandom} isRolling={isRolling} />
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Play Result Roll</h2>
-                            <div className='roll-result'>
-                                <RollResults roll={thirdRandom} isRolling={isRolling} />
-                            </div>
+                    </div>
+                    <div>
+                        <h2>Play Result Roll</h2>
+                        <div className='roll-result'>
+                            <RollResults roll={thirdRandom} isRolling={isRolling} />
                         </div>
                     </div>
                 </div>
-                {error && <p style={{ color: "red" }}>{error}</p>}
+            </div>
+            {error && <p style={{ color: "red" }}>{error}</p>}
 
-                {/* Inside your render/return in HomePage */}
-                <div className='results-container'>
-                    {(batterResults || pitcherResults) && (
-                        <div className='event-range-container'>
-                            <div className='event-range-tables'>
+            {/* Inside your render/return in HomePage */}
+            <div className='results-container'>
+                {(batterResults || pitcherResults) && (
+                    <div className='event-range-container'>
+                        <div className='event-range-tables'>
+                            <div className='count-result-container'>
                                 <div className='count-result'>
                                     <CountFrequenciesTable data={pitcherResults?.count_frequencies || []} highlightedCount={highlightedCount} randomRoll={firstRandom} />
+                                </div>
+                                <div className='card-preference'>
                                     <CardPreferenceTable cardPreferences={cardPreferences} randomRoll={secondRandom} highlightedCount={highlightedCount} />
                                 </div>
+                            </div>
 
-                                <div className={`result-tables-container ${activeCard === "pitcher" ? "pitcher-active" : "batter-active"}`}>
-                                    {/* Pitcher Results */}
-                                    <div className={`player-results pitcher-results ${activeCard === "pitcher" ? "active-card" : "inactive-card"}`}>
-                                        <h2>
-                                            Pitcher: {pitcherFirstName} {pitcherLastName}
-                                        </h2>
-                                        <EventRangeTable data={pitcherResults?.event_ranges?.righty || []} title={`vs RH Batters`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsRighty} highlightedRoll={thirdRandom} />
-                                        <EventRangeTable data={pitcherResults?.event_ranges?.lefty || []} title={`vs LH Batters`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsLefty} highlightedRoll={thirdRandom} />
-                                    </div>
+                            <div className={`result-tables-container ${activeCard === "pitcher" ? "pitcher-active" : "batter-active"}`}>
+                                {/* Pitcher Results */}
+                                <div className={`player-results pitcher-results ${activeCard === "pitcher" ? "active-card" : "inactive-card"}`}>
+                                    <h2>
+                                        Pitcher: {pitcherFirstName} {pitcherLastName}
+                                    </h2>
+                                    <EventRangeTable data={pitcherResults?.event_ranges?.righty || []} title={`vs RH Batters`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsRighty} highlightedRoll={thirdRandom} />
+                                    <EventRangeTable data={pitcherResults?.event_ranges?.lefty || []} title={`vs LH Batters`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsLefty} highlightedRoll={thirdRandom} />
+                                </div>
 
-                                    {/* Batter Results */}
-                                    <div className={`player-results batter-results ${activeCard === "batter" ? "active-card" : "inactive-card"}`}>
-                                        <h2>
-                                            Batter: {batterFirstName} {batterLastName}
-                                        </h2>
-                                        <EventRangeTable data={batterResults?.event_ranges?.righty || []} title={`vs RH Pitchers`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsRighty} highlightedRoll={thirdRandom} />
-                                        <EventRangeTable data={batterResults?.event_ranges?.lefty || []} title={`vs LH Pitchers`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsLefty} highlightedRoll={thirdRandom} />
-                                    </div>
+                                {/* Batter Results */}
+                                <div className={`player-results batter-results ${activeCard === "batter" ? "active-card" : "inactive-card"}`}>
+                                    <h2>
+                                        Batter: {batterFirstName} {batterLastName}
+                                    </h2>
+                                    <EventRangeTable data={batterResults?.event_ranges?.righty || []} title={`vs RH Pitchers`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsRighty} highlightedRoll={thirdRandom} />
+                                    <EventRangeTable data={batterResults?.event_ranges?.lefty || []} title={`vs LH Pitchers`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsLefty} highlightedRoll={thirdRandom} />
                                 </div>
                             </div>
                         </div>
-                    )}
-                </div>
-                <RollResultsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} {...rollResultsData} />
+                    </div>
+                )}
             </div>
+            <RollResultsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} {...rollResultsData} />
         </div>
     );
 }

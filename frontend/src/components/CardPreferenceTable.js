@@ -1,30 +1,55 @@
 import React from "react";
 
 const CardPreferenceTable = ({ cardPreferences, randomRoll, highlightedCount }) => {
+    const counts = Object.keys(cardPreferences);
+
     return (
         <table>
             <thead>
                 <tr>
-                    <th>Count</th>
-                    <th>Pitcher</th>
-                    <th>Batter</th>
+                    <th>Player Card</th>
+                    {counts.map((count) => (
+                        <th key={count} className={count === highlightedCount ? "highlighted-event" : ""}>
+                            {count}
+                        </th>
+                    ))}
                 </tr>
             </thead>
             <tbody>
-                {Object.keys(cardPreferences).map((count) => {
-                    const pitcherRange = cardPreferences[count].pitcher;
-                    const isCountMatched = count === highlightedCount;
-                    const isPitcherHighlighted = isCountMatched && randomRoll <= pitcherRange - 1;
-                    const isBatterHighlighted = isCountMatched && randomRoll >= pitcherRange;
+                <tr>
+                    <td>Pitcher</td>
+                    {counts.map((count) => {
+                        const pitcherRange = cardPreferences[count].pitcher;
+                        const isCountMatched = count === highlightedCount;
+                        const isPitcherHighlighted = isCountMatched && randomRoll <= pitcherRange - 1;
 
-                    return (
-                        <tr key={count} className={isCountMatched ? "highlighted-event" : ""}>
-                            <td>{count}</td>
-                            <td className={isPitcherHighlighted ? "highlighted-cell" : ""}>00 - {pitcherRange - 1}</td>
-                            <td className={isBatterHighlighted ? "highlighted-cell" : ""}>{pitcherRange} - 99</td>
-                        </tr>
-                    );
-                })}
+                        return (
+                            <td
+                                key={`${count}-pitcher`}
+                                className={isPitcherHighlighted ? "highlighted-cell" : ""}
+                            >
+                                0 - {pitcherRange - 1}
+                            </td>
+                        );
+                    })}
+                </tr>
+                <tr>
+                    <td>Batter</td>
+                    {counts.map((count) => {
+                        const pitcherRange = cardPreferences[count].pitcher;
+                        const isCountMatched = count === highlightedCount;
+                        const isBatterHighlighted = isCountMatched && randomRoll >= pitcherRange;
+
+                        return (
+                            <td
+                                key={`${count}-batter`}
+                                className={isBatterHighlighted ? "highlighted-cell" : ""}
+                            >
+                                {pitcherRange} - 99
+                            </td>
+                        );
+                    })}
+                </tr>
             </tbody>
         </table>
     );

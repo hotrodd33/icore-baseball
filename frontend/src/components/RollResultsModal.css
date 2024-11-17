@@ -170,3 +170,70 @@
       font-size: 0.8rem;
   }
 }
+
+/* Roll Results Modal Styles */
+.roll-results-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.result-section {
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.count-section {
+  text-align: center;
+  background-color: rgba(21, 107, 5, 0.1);
+}
+
+.card-section {
+  text-align: center;
+}
+
+.event-section {
+  background-color: white;
+}
+
+.event-result {
+  padding: 4px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.rolls-section {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Animation for modal appearance */
+@keyframes slideUp {
+  from {
+      transform: translateY(20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.roll-results-content {
+  animation: slideUp 0.3s ease-out;
+}
+
+.results-modal {
+  position: fixed;
+  top: 100px;
+  background: #fff;
+  z-index: 999;
+  left: 50%;
+  right: 0;
+  width: 180px;
+}

@@ -1,272 +1,97 @@
 {
-  "batters": [
-    {
-      "firstName": "Freddie",
-      "lastName": "Freeman",
-      "year": "2023",
-      "team": "LAD"
-    },
-    {
-      "firstName": "Ronald",
-      "lastName": "Acuna",
-      "year": "2023",
-      "team": "ATL"
-    },
-    {
-      "firstName": "Mookie",
-      "lastName": "Betts",
-      "year": "2023",
-      "team": "LAD"
-    },
-    {
-      "firstName": "Matt",
-      "lastName": "Olson",
-      "year": "2023",
-      "team": "ATL"
-    },
-    {
-      "firstName": "Juan",
-      "lastName": "Soto",
-      "year": "2023",
-      "team": "SDP/NYY"
-    },
-    {
-      "firstName": "Austin",
-      "lastName": "Riley",
-      "year": "2023",
-      "team": "ATL"
-    },
-    {
-      "firstName": "Shohei",
-      "lastName": "Ohtani",
-      "year": "2023",
-      "team": "LAA/LAD"
-    },
-    {
-      "firstName": "Aaron",
-      "lastName": "Judge",
-      "year": "2023",
-      "team": "NYY"
-    },
-    {
-      "firstName": "Corey",
-      "lastName": "Seager",
-      "year": "2023",
-      "team": "TEX"
-    },
-    {
-      "firstName": "Kyle",
-      "lastName": "Tucker",
-      "year": "2023",
-      "team": "HOU"
-    },
-    {
-      "firstName": "Adolis",
-      "lastName": "Garcia",
-      "year": "2023",
-      "team": "TEX"
-    },
-    {
-      "firstName": "Mark",
-      "lastName": "McGwire",
-      "year": "1998",
-      "team": "STL",
-      "note": "70 HR season"
-    },
-    {
-      "firstName": "Sammy",
-      "lastName": "Sosa",
-      "year": "1998",
-      "team": "CHC",
-      "note": "66 HR season"
-    },
-    {
-      "firstName": "Ken",
-      "lastName": "Griffey",
-      "year": "1998",
-      "team": "SEA",
-      "note": "AL HR Leader"
-    },
-    {
-      "firstName": "Barry",
-      "lastName": "Bonds",
-      "year": "1998",
-      "team": "SFG",
-      "note": "All-Star starter"
-    },
-    {
-      "firstName": "Tony",
-      "lastName": "Gwynn",
-      "year": "1998",
-      "team": "SDP",
-      "note": "Hall of Famer"
-    },
-    {
-      "firstName": "Larry",
-      "lastName": "Walker",
-      "year": "1998",
-      "team": "COL",
-      "note": "NL Batting Title"
-    },
-    {
-      "firstName": "Alex",
-      "lastName": "Rodriguez",
-      "year": "1998",
-      "team": "SEA",
-      "note": "40-40 season"
-    },
-    {
-      "firstName": "Juan",
-      "lastName": "Gonzalez",
-      "year": "1998",
-      "team": "TEX",
-      "note": "AL MVP"
-    },
-    {
-      "firstName": "Ivan",
-      "lastName": "Rodriguez",
-      "year": "1998",
-      "team": "TEX",
-      "note": "Gold Glove"
-    },
-    {
-      "firstName": "Chipper",
-      "lastName": "Jones",
-      "year": "1998",
-      "team": "ATL",
-      "note": "All-Star starter"
-    }
-  ],
-  "pitchers": [
-    {
-      "firstName": "Spencer",
-      "lastName": "Strider",
-      "year": "2023",
-      "team": "ATL"
-    },
-    {
-      "firstName": "Zac",
-      "lastName": "Gallen",
-      "year": "2023",
-      "team": "ARI"
-    },
-    {
-      "firstName": "Justin",
-      "lastName": "Steele",
-      "year": "2023",
-      "team": "CHC"
-    },
-    {
-      "firstName": "Gerrit",
-      "lastName": "Cole",
-      "year": "2023",
-      "team": "NYY"
-    },
-    {
-      "firstName": "Framber",
-      "lastName": "Valdez",
-      "year": "2023",
-      "team": "HOU"
-    },
-    {
-      "firstName": "Kevin",
-      "lastName": "Gausman",
-      "year": "2023",
-      "team": "TOR"
-    },
-    {
-      "firstName": "Luis",
-      "lastName": "Castillo",
-      "year": "2023",
-      "team": "SEA"
-    },
-    {
-      "firstName": "Sonny",
-      "lastName": "Gray",
-      "year": "2023",
-      "team": "MIN"
-    },
-    {
-      "firstName": "Josh",
-      "lastName": "Hader",
-      "year": "2023",
-      "team": "SDP"
-    },
-    {
-      "firstName": "Emmanuel",
-      "lastName": "Clase",
-      "year": "2023",
-      "team": "CLE"
-    },
-    {
-      "firstName": "Greg",
-      "lastName": "Maddux",
-      "year": "1998",
-      "team": "ATL",
-      "note": "18-9, 2.22 ERA"
-    },
-    {
-      "firstName": "Roger",
-      "lastName": "Clemens",
-      "year": "1998",
-      "team": "TOR",
-      "note": "AL Cy Young"
-    },
-    {
-      "firstName": "Tom",
-      "lastName": "Glavine",
-      "year": "1998",
-      "team": "ATL",
-      "note": "20-6 season"
-    },
-    {
-      "firstName": "Trevor",
-      "lastName": "Hoffman",
-      "year": "1998",
-      "team": "SDP",
-      "note": "53 saves"
-    },
-    {
-      "firstName": "Pedro",
-      "lastName": "Martinez",
-      "year": "1998",
-      "team": "BOS",
-      "note": "251 strikeouts"
-    },
-    {
-      "firstName": "Mariano",
-      "lastName": "Rivera",
-      "year": "1998",
-      "team": "NYY",
-      "note": "36 saves"
-    },
-    {
-      "firstName": "Curt",
-      "lastName": "Schilling",
-      "year": "1998",
-      "team": "PHI",
-      "note": "300 strikeouts"
-    },
-    {
-      "firstName": "Kevin",
-      "lastName": "Brown",
-      "year": "1998",
-      "team": "SDP",
-      "note": "2.38 ERA"
-    },
-    {
-      "firstName": "Randy",
-      "lastName": "Johnson",
-      "year": "1998",
-      "team": "HOU/SEA",
-      "note": "Midseason trade"
-    },
-    {
-      "firstName": "David",
-      "lastName": "Wells",
-      "year": "1998",
-      "team": "NYY",
-      "note": "Perfect Game"
-    }
-  ]
-}
+    "batters": [
+      {
+        "firstName": "Mookie",
+        "lastName": "Betts",
+        "year": "2024",
+        "bats": "R",
+        "throws": "R"
+      },
+      {
+        "firstName": "Freddie",
+        "lastName": "Freeman",
+        "year": "2024",
+        "bats": "L",
+        "throws": "R"
+      },
+      {
+        "firstName": "Max",
+        "lastName": "Muncy",
+        "year": "2024",
+        "bats": "L",
+        "throws": "R"
+      },
+      {
+        "firstName": "Will",
+        "lastName": "Smith",
+        "year": "2024",
+        "bats": "R",
+        "throws": "R"
+      },
+      {
+        "firstName": "Chris",
+        "lastName": "Taylor",
+        "year": "2024",
+        "bats": "R",
+        "throws": "R"
+      },
+      {
+        "firstName": "Gavin",
+        "lastName": "Lux",
+        "year": "2024",
+        "bats": "L",
+        "throws": "R"
+      },
+      {
+        "firstName": "Justin",
+        "lastName": "Turner",
+        "year": "2024",
+        "bats": "R",
+        "throws": "R"
+      }
+    ],
+    "pitchers": [
+      {
+        "firstName": "Clayton",
+        "lastName": "Kershaw",
+        "year": "2024",
+        "bats": "L",
+        "throws": "L"
+      },
+      {
+        "firstName": "Julio",
+        "lastName": "Urias",
+        "year": "2024",
+        "bats": "L",
+        "throws": "L"
+      },
+      {
+        "firstName": "Walker",
+        "lastName": "Buehler",
+        "year": "2024",
+        "bats": "R",
+        "throws": "R"
+      },
+      {
+        "firstName": "Tony",
+        "lastName": "Gonsolin",
+        "year": "2024",
+        "bats": "R",
+        "throws": "R"
+      },
+      {
+        "firstName": "Blake",
+        "lastName": "Treinen",
+        "year": "2024",
+        "bats": "R",
+        "throws": "R"
+      },
+      {
+        "firstName": "David",
+        "lastName": "Price",
+        "year": "2024",
+        "bats": "L",
+        "throws": "L"
+      }
+    ]
+  }

@@ -1,0 +1,19 @@
+/* Event range tables and dice roll container */
+.event-range-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.event-range-tables {
+  font-size: 10px;
+  flex: 3;
+  display: flex;
+  gap: 20px;
+}
+
+.pitcher-advantage {
+  background-color: red;
+}
