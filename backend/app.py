@@ -14,10 +14,9 @@ DATA_FOLDER = "data"
 os.makedirs(DATA_FOLDER, exist_ok=True)
 
 ALL_EVENTS_ORDER = [
-    "field_error", "field_out_fly_ball", "field_out_popup", "field_out_line_drive", "field_out_ground_ball",
-    "double_play_combined", "catcher_interf",
-    "single", "double", "triple", "home_run", "walk", "hit_by_pitch",
-    "strikeout"
+    "strikeout", "double_play_combined", "field_out_ground_ball", "field_out_popup", "field_out_fly_ball", "field_out_line_drive", 
+    "field_error", "catcher_interf", "walk", "hit_by_pitch",
+    "single", "double", "triple", "home_run"
 ]
 
 # Update EVENT_GROUPS to only combine necessary events, leaving out field outs to be distinct
