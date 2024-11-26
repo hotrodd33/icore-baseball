@@ -1,19 +1,62 @@
-/* Event range tables and dice roll container */
-.event-range-container {
+.event-table-group {
+  width: 100%;
+  font-size: 0.8em;
+}
+
+.strike-group {
+  margin-bottom: 10px;
+}
+
+.tables-container {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
+  width: 500px;
+}
+
+.event-table {
+  border-collapse: collapse;
+}
+
+.event-table th,
+.event-table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  line-height: 20px;
+}
+
+.results-column {
+  display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
 }
 
-.event-range-tables {
-  font-size: 10px;
-  flex: 3;
-  display: flex;
-  gap: 20px;
+.result-name {
+  font-weight: bold;
 }
 
-.pitcher-advantage {
-  background-color: red;
+.fill-bar-container {
+  position: relative;
+  height: 20px;
+  width: 100%;
+  background: #f0f0f0;
+}
+
+.fill-bar {
+  height: 100%;
+  background: #4caf4f58; /* Fill bar color */
+}
+
+.range-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 0;
+}
+
+.no-data {
+  color: #999;
+  min-height: 20px;
 }

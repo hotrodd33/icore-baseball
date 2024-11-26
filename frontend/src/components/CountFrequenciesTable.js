@@ -18,7 +18,7 @@ const CountFrequenciesTable = ({ data, highlightedCount, randomRoll }) => {
         <table>
             <thead>
                 <tr>
-                    <th>Pitch Count</th>
+                    <th>Count</th>
                     {COUNT_ORDER.map((count) => (
                         <th key={count} className={count === highlightedCount ? "highlighted-column" : ""}>
                             {count}
