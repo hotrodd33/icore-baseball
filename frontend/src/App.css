@@ -135,6 +135,7 @@ table td {
     border: 1px solid #bababa;
     text-align: center;
     width: 60px;
+    font-size: 0.8em;
 }
 
 table th {

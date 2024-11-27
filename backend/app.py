@@ -14,19 +14,21 @@ DATA_FOLDER = "data"
 os.makedirs(DATA_FOLDER, exist_ok=True)
 
 ALL_EVENTS_ORDER = [
-    "strikeout", "double_play_combined", "field_out_ground_ball", "field_out_popup", "field_out_fly_ball", "field_out_line_drive", 
-    "field_error", "catcher_interf", "walk", "hit_by_pitch",
+    "strikeout", "sac_fly_double_play", "double_play_combined", "field_out_ground_ball", "field_out_popup", "field_out_fly_ball", "field_out_line_drive", 
+    "field_error", "truncated_pa", "catcher_interf", "walk", "hit_by_pitch",
     "single", "double", "triple", "home_run"
 ]
 
 # Update EVENT_GROUPS to only combine necessary events, leaving out field outs to be distinct
 EVENT_GROUPS = {
     "grounded_into_double_play": "double_play_combined",
+    "sac_fly_double_play": "double_play_combined",
     "double_play": "double_play_combined",
     "sac_fly": "field_out_fly_ball",
     "strikeout": "strikeout",
     "strikeout_double_play": "strikeout",
     "fielders_choice_out": "field_out_ground_ball",
+    "truncated_pa": "field_out_ground_ball",
     "fielders_choice": "field_out_ground_ball",
     "sac_bunt": "field_out_ground_ball",
     "force_out": "field_out_ground_ball",
@@ -66,8 +68,9 @@ def calculate_ranges(subset):
         current_start = 0
         grouped_data = []
 
-        events_dict = {}
-        event_counts = {}
+        # Initialize events dictionary and counts to 0 for all events in ALL_EVENTS_ORDER
+        events_dict = {event_name: 0 for event_name in ALL_EVENTS_ORDER}
+        event_counts = {event_name: 0 for event_name in ALL_EVENTS_ORDER}
 
         for event, event_group in group.groupby('events'):
             # Combine events based on the grouping dictionary if applicable
@@ -85,27 +88,19 @@ def calculate_ranges(subset):
                     elif bb_type == 'ground_ball':
                         combined_event = 'field_out_ground_ball'
 
-                    if combined_event not in events_dict:
-                        events_dict[combined_event] = 0
-                        event_counts[combined_event] = 0
-
-                    # Calculate percentage and count
+                    # Update events dictionary and counts
                     event_count = bb_group.shape[0]
                     events_dict[combined_event] += event_count / total_count
                     event_counts[combined_event] += event_count
             else:
-                if combined_event not in events_dict:
-                    events_dict[combined_event] = 0
-                    event_counts[combined_event] = 0
-
-                # Calculate percentage and count
+                # Update events dictionary and counts for non-field_out events
                 event_count = event_group.shape[0]
                 events_dict[combined_event] += event_count / total_count
                 event_counts[combined_event] += event_count
 
-        # Create ranges based on individual events, including grouped events distinctly
+        # Create ranges based on the order defined in ALL_EVENTS_ORDER
         for event_name in ALL_EVENTS_ORDER:
-            if event_name in events_dict:
+            if events_dict[event_name] > 0:
                 decimal_value = events_dict[event_name]
                 range_size = int(decimal_value * 1000)
 

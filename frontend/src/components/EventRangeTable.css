@@ -1,6 +1,5 @@
 .event-table-group {
   width: 100%;
-  font-size: 0.8em;
 }
 
 .strike-group {
@@ -11,7 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 500px;
 }
 
 .event-table {
@@ -24,7 +22,9 @@
   text-align: center;
   line-height: 20px;
 }
-
+.batter-results .event-table-group {
+    margin-top: 90px;
+}X
 .results-column {
   display: flex;
   flex-direction: column;
