@@ -1,97 +1,640 @@
 {
-    "batters": [
-      {
-        "firstName": "Mookie",
-        "lastName": "Betts",
-        "year": "2024",
-        "bats": "R",
-        "throws": "R"
-      },
-      {
-        "firstName": "Freddie",
-        "lastName": "Freeman",
-        "year": "2024",
-        "bats": "L",
-        "throws": "R"
-      },
-      {
-        "firstName": "Max",
-        "lastName": "Muncy",
-        "year": "2024",
-        "bats": "L",
-        "throws": "R"
-      },
-      {
-        "firstName": "Will",
-        "lastName": "Smith",
-        "year": "2024",
-        "bats": "R",
-        "throws": "R"
-      },
-      {
-        "firstName": "Chris",
-        "lastName": "Taylor",
-        "year": "2024",
-        "bats": "R",
-        "throws": "R"
-      },
-      {
-        "firstName": "Gavin",
-        "lastName": "Lux",
-        "year": "2024",
-        "bats": "L",
-        "throws": "R"
-      },
-      {
-        "firstName": "Justin",
-        "lastName": "Turner",
-        "year": "2024",
-        "bats": "R",
-        "throws": "R"
-      }
-    ],
-    "pitchers": [
-      {
-        "firstName": "Clayton",
-        "lastName": "Kershaw",
-        "year": "2024",
-        "bats": "L",
-        "throws": "L"
-      },
-      {
-        "firstName": "Julio",
-        "lastName": "Urias",
-        "year": "2024",
-        "bats": "L",
-        "throws": "L"
-      },
-      {
-        "firstName": "Walker",
-        "lastName": "Buehler",
-        "year": "2024",
-        "bats": "R",
-        "throws": "R"
-      },
-      {
-        "firstName": "Tony",
-        "lastName": "Gonsolin",
-        "year": "2024",
-        "bats": "R",
-        "throws": "R"
-      },
-      {
-        "firstName": "Blake",
-        "lastName": "Treinen",
-        "year": "2024",
-        "bats": "R",
-        "throws": "R"
-      },
-      {
-        "firstName": "David",
-        "lastName": "Price",
-        "year": "2024",
-        "bats": "L",
-        "throws": "L"
-      }
-    ]
-  }
+  "batters": [
+    {
+      "firstName": "Mookie",
+      "lastName": "Betts",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Freddie",
+      "lastName": "Freeman",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Max",
+      "lastName": "Muncy",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Will",
+      "lastName": "Smith",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Chris",
+      "lastName": "Taylor",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Gavin",
+      "lastName": "Lux",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Justin",
+      "lastName": "Turner",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Shohei",
+      "lastName": "Ohtani",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Aaron",
+      "lastName": "Judge",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Mike",
+      "lastName": "Trout",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Jose",
+      "lastName": "Ramirez",
+      "year": "2024",
+      "bats": "S",
+      "throws": "R"
+    },
+    {
+      "firstName": "Vladimir",
+      "lastName": "Guerrero Jr.",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Juan",
+      "lastName": "Soto",
+      "year": "2024",
+      "bats": "L",
+      "throws": "L"
+    },
+    {
+      "firstName": "Ronald",
+      "lastName": "Acuna Jr.",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Yordan",
+      "lastName": "Alvarez",
+      "year": "2024",
+      "bats": "L",
+      "throws": "L"
+    },
+    {
+      "firstName": "Corey",
+      "lastName": "Seager",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Trea",
+      "lastName": "Turner",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Matt",
+      "lastName": "Olson",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Francisco",
+      "lastName": "Lindor",
+      "year": "2024",
+      "bats": "S",
+      "throws": "R"
+    },
+    {
+      "firstName": "Bo",
+      "lastName": "Bichette",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Bryce",
+      "lastName": "Harper",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Rafael",
+      "lastName": "Devers",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Pete",
+      "lastName": "Alonso",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Paul",
+      "lastName": "Goldschmidt",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Manny",
+      "lastName": "Machado",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Aaron",
+      "lastName": "Judge",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Shohei",
+      "lastName": "Ohtani",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Juan",
+      "lastName": "Soto",
+      "year": "2024",
+      "bats": "L",
+      "throws": "L"
+    },
+    {
+      "firstName": "Vladimir",
+      "lastName": "Guerrero Jr.",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "José",
+      "lastName": "Ramírez",
+      "year": "2024",
+      "bats": "S",
+      "throws": "R"
+    },
+    {
+      "firstName": "Luis",
+      "lastName": "Arráez",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Marcell",
+      "lastName": "Ozuna",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Yordan",
+      "lastName": "Alvarez",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Kyle",
+      "lastName": "Schwarber",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Gunnar",
+      "lastName": "Henderson",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "William",
+      "lastName": "Contreras",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Yandy",
+      "lastName": "Díaz",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Jurickson",
+      "lastName": "Profar",
+      "year": "2024",
+      "bats": "S",
+      "throws": "R"
+    },
+    {
+      "firstName": "Bobby",
+      "lastName": "Witt Jr.",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Corey",
+      "lastName": "Seager",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Ronald",
+      "lastName": "Acuña Jr.",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Freddie",
+      "lastName": "Freeman",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Mookie",
+      "lastName": "Betts",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Francisco",
+      "lastName": "Lindor",
+      "year": "2024",
+      "bats": "S",
+      "throws": "R"
+    },
+    {
+      "firstName": "Matt",
+      "lastName": "Chapman",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Ketel",
+      "lastName": "Marte",
+      "year": "2024",
+      "bats": "S",
+      "throws": "R"
+    },
+    {
+      "firstName": "Teoscar",
+      "lastName": "Hernández",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Jackson",
+      "lastName": "Merrill",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Brent",
+      "lastName": "Rooker",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Jarren",
+      "lastName": "Duran",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    }
+  ],
+  "pitchers": [
+    {
+      "firstName": "Clayton",
+      "lastName": "Kershaw",
+      "year": "2024",
+      "bats": "L",
+      "throws": "L"
+    },
+    {
+      "firstName": "Shohei",
+      "lastName": "Ohtani",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Max",
+      "lastName": "Scherzer",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Jacob",
+      "lastName": "deGrom",
+      "year": "2024",
+      "bats": "L",
+      "throws": "R"
+    },
+    {
+      "firstName": "Justin",
+      "lastName": "Verlander",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Corbin",
+      "lastName": "Burnes",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Sandy",
+      "lastName": "Alcantara",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Gerrit",
+      "lastName": "Cole",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Julio",
+      "lastName": "Urias",
+      "year": "2024",
+      "bats": "L",
+      "throws": "L"
+    },
+    {
+      "firstName": "Zac",
+      "lastName": "Gallen",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Aaron",
+      "lastName": "Nola",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Dylan",
+      "lastName": "Cease",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Blake",
+      "lastName": "Snell",
+      "year": "2024",
+      "bats": "L",
+      "throws": "L"
+    },
+    {
+      "firstName": "Shane",
+      "lastName": "McClanahan",
+      "year": "2024",
+      "bats": "L",
+      "throws": "L"
+    },
+    {
+      "firstName": "Yu",
+      "lastName": "Darvish",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Framber",
+      "lastName": "Valdez",
+      "year": "2024",
+      "bats": "L",
+      "throws": "L"
+    },
+    {
+      "firstName": "Luis",
+      "lastName": "Castillo",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Logan",
+      "lastName": "Webb",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Kevin",
+      "lastName": "Gausman",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Tyler",
+      "lastName": "Glasnow",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Spencer",
+      "lastName": "Strider",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Joe",
+      "lastName": "Musgrove",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Chris",
+      "lastName": "Bassitt",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Pablo",
+      "lastName": "Lopez",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },
+    {
+      "firstName": "Charlie",
+      "lastName": "Morton",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R"
+    },{
+      "firstName": "Devin",
+      "lastName": "Williams",
+      "team": "Milwaukee Brewers",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R",
+      "saves": 36,
+      "strikeouts": 87,
+      "era": 1.53
+    },
+    {
+      "firstName": "Ryan",
+      "lastName": "Helsley",
+      "team": "St. Louis Cardinals",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R",
+      "saves": 14,
+      "strikeouts": 52,
+      "era": 2.45
+    },
+    {
+      "firstName": "Pete",
+      "lastName": "Fairbanks",
+      "team": "Tampa Bay Rays",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R",
+      "saves": 25,
+      "strikeouts": 68,
+      "era": 2.58
+    },
+    {
+      "firstName": "Evan",
+      "lastName": "Phillips",
+      "team": "Los Angeles Dodgers",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R",
+      "saves": 24,
+      "strikeouts": 66,
+      "era": 2.05
+    },
+    {
+      "firstName": "Jhoan",
+      "lastName": "Duran",
+      "team": "Minnesota Twins",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R",
+      "saves": 27,
+      "strikeouts": 84,
+      "era": 2.45
+    },
+    {
+      "firstName": "Edwin",
+      "lastName": "Díaz",
+      "team": "New York Mets",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R",
+      "saves": 205,
+      "strikeouts": 657,
+      "era": 2.93
+    },
+    {
+      "firstName": "Bryan",
+      "lastName": "Abreu",
+      "team": "Houston Astros",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R",
+      "saves": 5,
+      "strikeouts": 100,
+      "era": 1.75
+    },
+    {
+      "firstName": "David",
+      "lastName": "Bednar",
+      "team": "Pittsburgh Pirates",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R",
+      "saves": 39,
+      "strikeouts": 80,
+      "era": 2.00
+    },
+    {
+      "firstName": "Chris",
+      "lastName": "Martin",
+      "team": "Boston Red Sox",
+      "year": "2024",
+      "bats": "R",
+      "throws": "R",
+      "saves": 3,
+      "strikeouts": 46,
+      "era": 1.05
+    },
+    {
+      "firstName": "José",
+      "lastName": "Alvarado",
+      "team": "Philadelphia Phillies",
+      "year": "2024",
+      "bats": "L",
+      "throws": "L",
+      "saves": 10,
+      "strikeouts": 64,
+      "era": 1.74
+    }
+  ]
+}

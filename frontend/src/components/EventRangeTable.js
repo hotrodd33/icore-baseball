@@ -5,9 +5,9 @@ const BALL_COUNTS = ["0", "1", "2", "3"];
 
 const EVENT_ALIASES = {
     strikeout: "K",
-    field_out_fly_ball: "FB",
-    field_out_popup: "P",
-    field_out_line_drive: "L",
+    field_out_fly_ball: "FLY",
+    field_out_popup: "POP",
+    field_out_line_drive: "LINE",
     field_out_ground_ball: "GB",
     double_play_combined: "HGB",
     field_error: "E",
@@ -20,11 +20,7 @@ const EVENT_ALIASES = {
 };
 
 // Make sure the events are displayed in a consistent order that matches ALL_EVENTS_ORDER
-const ALL_EVENTS_ORDER = [
-    "strikeout", "double_play_combined", "field_out_ground_ball", "field_out_popup", 
-    "field_out_fly_ball", "field_out_line_drive", "field_error", "walk", 
-    "hit_by_pitch", "single", "double", "triple", "home_run"
-];
+const ALL_EVENTS_ORDER = ["strikeout", "double_play_combined", "field_out_ground_ball", "field_out_popup", "field_out_fly_ball", "field_out_line_drive", "field_error", "walk", "hit_by_pitch", "single", "double", "triple", "home_run"];
 
 const transformDataByStrikes = (data = [], strikes) => {
     if (!Array.isArray(data)) return [];
@@ -55,12 +51,15 @@ const EventRangeTable = ({ data = [], handedness = "left", strikes }) => {
         return acc;
     }, {});
 
+    const handClass = handedness === 'left' ? 'lefty' : 'righty';
+
     console.log("Transformed Data for EventRangeTable:", transformedData);
 
     return (
-        <table className='event-table'>
+        <table className={`event-table ${handClass}`}>
             <thead>
                 <tr>
+                    <th></th>
                     {BALL_COUNTS.map((balls) => (
                         <th key={balls}>{`${balls} - ${strikes}`}</th>
                     ))}
@@ -69,6 +68,7 @@ const EventRangeTable = ({ data = [], handedness = "left", strikes }) => {
             <tbody>
                 {ALL_EVENTS_ORDER.map((event) => (
                     <tr key={event}>
+                        <td className='result-name'>{EVENT_ALIASES[event]}</td>
                         {BALL_COUNTS.map((balls) => {
                             const count = `(${balls}-${strikes})`;
                             const eventData = transformedData[count]?.[event];
@@ -116,23 +116,9 @@ const EventRangeTableGroup = ({ data = {} }) => {
         <div className='event-table-group'>
             {Object.keys(filteredData).map((strikes) => (
                 <div className='strike-group' key={strikes}>
-                    <h3>{strikes === "2" ? "Pitcher Ahead" : strikes === "1" ? "Neutral" : "Batter Ahead"}</h3>
+                    <h3>{strikes === "2" ? "2 Strikes" : strikes === "1" ? "1 Strike" : "0 Strikes"}</h3>
                     <div className='tables-container'>
                         <EventRangeTable data={filteredData[strikes].left} handedness='left' strikes={parseInt(strikes)} />
-                        <table className='event-table results-column'>
-                            <thead>
-                                <tr>
-                                    <th>Result</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {ALL_EVENTS_ORDER.map((event) => (
-                                    <tr key={event} className='result-name'>
-                                        <td>{EVENT_ALIASES[event]}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
                         <EventRangeTable data={filteredData[strikes].right} handedness='right' strikes={parseInt(strikes)} />
                     </div>
                 </div>

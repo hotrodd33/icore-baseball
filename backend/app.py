@@ -38,7 +38,7 @@ EVENT_GROUPS = {
     # You can add more mappings if necessary
 }
 
-COUNT_ORDER = ["(0-2)", "(1-2)", "(2-2)", "(3-2)", "(0-1)", "(1-1)", "(2-1)", "(3-1)", "(0-0)", "(1-0)", "(2-0)", "(3-0)"]
+COUNT_ORDER = ["(0-0)", "(0-1)", "(0-2)", "(1-0)", "(1-1)", "(1-2)", "(2-0)", "(2-1)", "(2-2)", "(3-0)", "(3-1)", "(3-2)"]
 
 def calculate_event_ranges_for_counts(stats, player_type):
     print(f"Processing stats for {player_type} event ranges")

@@ -7,6 +7,7 @@ import cardPreferences from "./card_preference.json";
 import testData from "./Test_Data.json";
 import { Loader2 } from "lucide-react";
 import EventRangeTable from "./components/EventRangeTable";
+import EventRangeTableAlt from "./components/EventRangeTableAlt";
 import RollResults from "./components/RollResults";
 import CardPreferenceTable from "./components/CardPreferenceTable";
 import CountFrequenciesTable from "./components/CountFrequenciesTable";
@@ -315,6 +316,7 @@ function HomePage() {
                                 </div>
                             </div>
 
+ 
                             <div className={`result-tables-container ${activeCard === "pitcher" ? "pitcher-active" : "batter-active"}`}>
                                 {/* Pitcher Results */}
                                 <div className={`player-results pitcher-results ${activeCard === "pitcher" ? "active-card" : "inactive-card"}`}>
@@ -322,7 +324,7 @@ function HomePage() {
                                         {pitcherFirstName} {pitcherLastName}
                                     </h2>
                                     <CountFrequenciesTable data={pitcherResults?.count_frequencies || []} highlightedCount={highlightedCount} randomRoll={firstRandom} />
-                                    <EventRangeTable data={pitcherResults?.event_ranges || []} title={`Pitching Card`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsRighty} highlightedRoll={thirdRandom} />
+                                    <EventRangeTableAlt data={pitcherResults?.event_ranges || []} title={`Pitching Card`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsRighty} highlightedRoll={thirdRandom} />
                                 </div>
 
                                 {/* Batter Results */}
@@ -330,7 +332,7 @@ function HomePage() {
                                     <h2>
                                         {batterFirstName} {batterLastName}
                                     </h2>
-                                    <EventRangeTable data={batterResults?.event_ranges || []} title={`Batting Card`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsRighty} highlightedRoll={thirdRandom} />
+                                    <EventRangeTableAlt data={batterResults?.event_ranges || []} title={`Batting Card`} highlightedCount={highlightedCount} highlightedEvents={highlightedEventsRighty} highlightedRoll={thirdRandom} />
                                 </div>
                             </div>
                         </div>

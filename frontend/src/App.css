@@ -130,31 +130,13 @@ table {
     background-color: #fff;
 }
 
-table th,
-table td {
-    border: 1px solid #bababa;
-    text-align: center;
-    width: 60px;
-    font-size: 0.8em;
-}
-
-table th {
-    background-color: #2e2e2e;
-    color: #f4f1e6;
-    font-weight: 700;
-}
-
+.highlighted-cell,
 tr.highlighted-event,
 td.highlighted-event,
 th.highlighted-column,
 td.highlighted-column {
-    background-color: #cbf4ad6a !important;
-    color: #000;
-}
-
-.highlighted-cell {
-    background-color: #b7fe01 !important;
-    font-weight: 700;
+    background-color: #002b5c; /* Navy blue for a modern baseball look */
+    color: #ffffff;
     z-index: 2;
     position: relative;
 }
@@ -201,49 +183,27 @@ table tbody tr.highlighted-event:hover {
     display: flex;
     gap: 20px;
     transition: all 0.3s ease;
+    background-color: #fff;
 }
 
 .player-results {
     flex: 1;
-    padding: 20px;
-    border-radius: 8px;
-    border: 2px solid transparent;
     transition: all 0.3s ease;
-}
+    padding: 5px;
+    border: 1px solid #ccc
 
-.player-results h2 {
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.batter-results,
-.pitcher-results {
-    border-color: #666;
-}
-
-.active-card {
-    border-color: #156b05;
-    background-color: #156b051a;
-    box-shadow: 0 4px 12px #156b0533;
-}
-
-.player-results:hover {
-    transform: scale(1.01);
-}
-
-.active-card:hover {
-    transform: scale(1.03);
 }
 
 .count-result-container {
-  display: flex; /* Make the container use flexbox */
-  justify-content: space-between; /* Add some spacing between the elements */
-  gap: 20px; /* Adjust the space between the two elements as needed */
+    display: flex; /* Make the container use flexbox */
+    justify-content: space-between; /* Add some spacing between the elements */
+    gap: 20px; /* Adjust the space between the two elements as needed */
 }
 
-.count-result, .card-preference {
-  flex: 1; /* Distribute equal space to both components */
-  max-width: 50%; /* Ensure that they don't exceed 50% of the container width */
+.count-result,
+.card-preference {
+    flex: 1; /* Distribute equal space to both components */
+    max-width: 50%; /* Ensure that they don't exceed 50% of the container width */
 }
 
 @media (max-width: 1200px) {
@@ -321,29 +281,4 @@ table tbody tr.highlighted-event:hover {
     to {
         opacity: 1;
     }
-}
-
-.fill-bar-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.fill-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: #6eb1e996;
-    z-index: 1;
-    transition: width 0.5s ease-in-out;
-}
-
-.range-text {
-    position: relative;
-    z-index: 2;
-    padding: 4px;
-    white-space: nowrap;
-    color: #333;
-    line-height: 15px;
 }
